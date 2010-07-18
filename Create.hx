@@ -36,20 +36,22 @@ class Create {
   static var api:Dynamic;
   static var fo:js.io.FileOutput;
   static var all:js.io.FileOutput;
-
+  static var apiDir = "dojoApi";
   static var METHODS = "methods";
   static var PROPS = "properties";
   static var PROVIDES = "provides";
+
   static var keywords = [ "class", "callback"] ;
   static var missingDojo = [];
   static var prop_blacklist = ["regExpGen","serialize"];
  
-  static var extend_blacklist = [
+  static var class_blacklist = [
                           "dojo.Deferred",
                           "dojo.data.util.simpleFetch",
                           "dijit._MenuBase",
                           "dijit.form._FormValueWidget",
-                          "dijit.layout._Splitter"
+                          "dijit.layout._Splitter",
+                          "dijit._Widget"
                           ];
 
   // these should be in the provides api but aren't
@@ -64,6 +66,8 @@ class Create {
                              "dojox.wire.ml.ChildWire"
                              ];
 
+  static var missingDijit = [];
+  
   static function
   keyword(p:String) {
     return keywords.exists(function(kw) { return kw == p; });
@@ -77,8 +81,8 @@ class Create {
           missingDojoX;
        case "dojo":
           missingDojo;
-       default:
-          [];
+       case "dijit":
+          missingDijit;
       };
 
     if (provides != null && missing.length > 0) {
@@ -88,15 +92,22 @@ class Create {
     }
   }
 
+  static inline function
+  to(p:String) {
+    return apiDir + "/"+p;
+  }
+  
   public static function
   main() {
 
+    Os.mkdir(apiDir);
+    
     all = js.io.File.write("All.hx",false);
 
     var names = ["dojo","dijit","dojox"];
 
     names.iter(function(el) {
-        Os.mkdir(el);
+        Os.mkdir(to(el));
       });
     
     var s = js.io.File.getContent("api.json");
@@ -119,13 +130,12 @@ class All {
   topLevel(ns:String) {
     var top:Base = Reflect.field(api,ns),
       name = ns.substr(0,1).toUpperCase() + ns.substr(1);
-    fo = js.io.File.write(name+".hx",true);
+    fo = js.io.File.write(to(name+".hx"),true);
     writeClassHeader(top,name);
     writeClass(top);
     fo.close();
   }
   
-
   static function
   nameSpace(ns) {
     provides(Reflect.field(ns,PROVIDES));
@@ -142,13 +152,14 @@ class All {
       for (p in prv) {
         var actual = lookup(p);
         if (actual != null) {
-          if (actual.classlike) {
+          if (actual.classlike && class_blacklist.exists(function(b) {
+            return b == actual.name ; })) {
             var s = p.split("."),
               path = s.join("/") + ".hx",
               dir = s.slice(0,-1);
 
-            Os.mkdir(dir.join("/"));
-            fo = js.io.File.write(path,true);
+            Os.mkdir(to(dir.join("/")));
+            fo = js.io.File.write(to(path),true);
             all.writeString("import "+actual.location + ";\n");
             fo.writeString("package "+dir.join(".") +";\n\n");
             writeClassHeader(actual,className(actual));
@@ -175,7 +186,7 @@ class All {
   writeClassHeader(obj,cn) {
     fo.writeString("extern class "+cn);
     if (obj.superclass != null &&
-        ! extend_blacklist.exists(function(b) {
+        ! class_blacklist.exists(function(b) {
             return b == obj.superclass ; })) {
       fo.writeString(" extends "+obj.superclass);
     }
