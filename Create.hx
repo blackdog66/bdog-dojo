@@ -102,6 +102,7 @@ class Create {
     var s = js.io.File.getContent("api.json");
     api = JSON.decode(s);
     for (ns in names) {
+      topLevel(ns);
       addMissing(ns);
       nameSpace(Reflect.field(api,ns));
     }
@@ -113,6 +114,17 @@ class All {
     
     all.close();
   }
+
+  static function
+  topLevel(ns:String) {
+    var top:Base = Reflect.field(api,ns),
+      name = ns.substr(0,1).toUpperCase() + ns.substr(1);
+    fo = js.io.File.write(name+".hx",true);
+    writeClassHeader(top,name);
+    writeClass(top);
+    fo.close();
+  }
+  
 
   static function
   nameSpace(ns) {
@@ -139,6 +151,7 @@ class All {
             fo = js.io.File.write(path,true);
             all.writeString("import "+actual.location + ";\n");
             fo.writeString("package "+dir.join(".") +";\n\n");
+            writeClassHeader(actual,className(actual));
             writeClass(actual);
             fo.close();
           }
@@ -159,8 +172,7 @@ class All {
   }
 
   static function
-  writeClassHeader(obj) {
-    var cn = className(obj);
+  writeClassHeader(obj,cn) {
     fo.writeString("extern class "+cn);
     if (obj.superclass != null &&
         ! extend_blacklist.exists(function(b) {
@@ -171,8 +183,7 @@ class All {
   }
   
   static function
-  writeClass(obj) {
-    writeClassHeader(obj);
+  writeClass(obj:Base) {
     eachMethod(obj,function(m) {
         genMethod(obj,m);
       });
