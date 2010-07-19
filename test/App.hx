@@ -44,15 +44,14 @@ class App {
         var dialog = new dijit.Dialog({ title:"Hello Dijit!" }, "someId");
         //    dialog.startup();
         
-        // Hint: In order to open the dialog, you have to call
-         dialog.show();
 
          var button = new dijit.form.Button({
            label: "Click me!",
            onClick: function() {
                // Do something:
-               trace("here");
                dojo.byId("result1").innerHTML += "Thank you! ";
+               dialog.show();
+               
              }
            },
            "progButtonNode");
