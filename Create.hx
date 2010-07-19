@@ -37,6 +37,7 @@ class Create {
   static var fo:js.io.FileOutput;
   static var all:js.io.FileOutput;
   static var apiDir = "dojoApi";
+  static var curNS:String;
   static var METHODS = "methods";
   static var PROPS = "properties";
   static var PROVIDES = "provides";
@@ -138,6 +139,7 @@ class Create {
     var s = js.io.File.getContent("api.json");
     api = JSON.decode(s);
     for (ns in names) {
+      curNS = ns;
       if (ns != "dojox")
         topLevel(ns);
       addMissing(ns);
@@ -234,12 +236,18 @@ class All {
 
   static function
   writeBody(obj:Base,writePub = true) {
+    var constructor = false;
     eachMethod(obj,function(m) {
-        genMethod(obj,m,writePub);
+        constructor = genMethod(obj,m,writePub);   
       });
     eachProperty(obj,function(p) {
         genProp(obj,p,writePub);
       });
+    
+    if (curNS == "dijit") {
+      fo.writeString("function new(prms:Dynamic,id:String):Void;\n");
+    }
+    
     fo.writeString("\n}\n");
   }
 
@@ -278,9 +286,9 @@ class All {
   
   static function
   genMethod(o:Base,m:Method,writePub = true) {
+    var constructor = m.name == "constructor" && curNS != "dijit";
     if (m.name != null) {
       if (!priv(m)) {
-        var constructor = m.name == "constructor";
         if(uniqueAttr(o,m,METHODS) || constructor) {
 
           commentIllegalName(m.name);
@@ -305,6 +313,7 @@ class All {
         }
       }
     }
+    return constructor;
   }
 
   static function
