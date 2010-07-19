@@ -1,0 +1,24 @@
+
+First stab Dojo Api, the current generated api in dojoApi dir.
+
+To create the api from the api.json then ...
+
+haxe -debug -D nodejs -cp . -cp ../core -js genapi.js -main Create
+
+This requires the bdog-stdhx project and node installed to generate it.
+
+then run
+
+node genapi.js
+
+to generate the dojoApi dir.
+
+Then to test that the api is at least compiling
+
+haxe -cp . -D nodejs -js all.hs -main All
+
+All.hx is generated during the node genapi.js process to provide a
+compilation of all classes in one place.
+
+For most peeps not interested in tweaking the api just set your cp to the
+dojoApi dir.

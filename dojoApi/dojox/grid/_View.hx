@@ -1,0 +1,55 @@
+package dojox.grid;
+
+extern class _View {
+public function focus():Void;
+public function setStructure(inStructure:Dynamic):Void;
+public function onBeforeRow(inRowIndex:Dynamic,cells:Dynamic):Void;
+public function onAfterRow(inRowIndex:Dynamic,cells:Dynamic,inRowNode:Dynamic):Void;
+public function testFlexCells():Void;
+public function updateStructure():Void;
+public function getScrollbarWidth():Int;
+public function getColumnsWidth():Int;
+public function setColumnsWidth(width:Dynamic):Void;
+public function getWidth():String;
+public function getContentWidth():String;
+public function render():Void;
+public function renderHeader():Void;
+public function resize():Void;
+public function hasHScrollbar(reset:Dynamic):Bool;
+public function hasVScrollbar(reset:Dynamic):Bool;
+public function convertColPctToFixed():Void;
+public function adaptHeight(minusScroll:Dynamic):Void;
+public function adaptWidth():Void;
+public function setSize(w:Dynamic,h:Dynamic):Void;
+public function renderRow(inRowIndex:Dynamic):Void;
+public function createRowNode(inRowIndex:Dynamic):Void;
+public function buildRow(inRowIndex:Dynamic,inRowNode:Dynamic):Void;
+public function buildRowContent(inRowIndex:Dynamic,inRowNode:Dynamic):Void;
+public function rowRemoved(inRowIndex:Dynamic):Void;
+public function getRowNode(inRowIndex:Dynamic):Void;
+public function getCellNode(inRowIndex:Dynamic,inCellIndex:Dynamic):Void;
+public function getHeaderCellNode(inCellIndex:Dynamic):Void;
+public function styleRow(inRowIndex:Dynamic,inRowNode:Dynamic):Void;
+public function styleRowNode(inRowIndex:Dynamic,inRowNode:Dynamic):Void;
+public function doStyleRowNode(inRowIndex:Dynamic,inRowNode:Dynamic):Void;
+public function updateRow(inRowIndex:Dynamic):Void;
+public function updateRowStyles(inRowIndex:Dynamic):Void;
+public function doscroll(inEvent:Dynamic):Void;
+public function setScrollTop(inTop:Dynamic):Void;
+public function doContentEvent(e:Dynamic):Void;
+public function doHeaderEvent(e:Dynamic):Void;
+public function dispatchContentEvent(e:Dynamic):Void;
+public function dispatchHeaderEvent(e:Dynamic):Void;
+public function setColWidth(inIndex:Dynamic,inWidth:Dynamic):Void;
+public function update():Void;
+public var defaultWidth:String;
+public var viewWidth:String;
+public var templatePath:Dynamic;
+public var themeable:Bool;
+public var classTag:String;
+public var marginBottom:Float;
+public var rowPad:Float;
+public var lastTop:Float;
+public var firstScroll:Float;
+
+}
