@@ -44,14 +44,12 @@ class Create {
 
   static var keywords = [ "class", "callback"] ;
 
-  static var prop_blacklist = ["regExpGen","serialize"];
+  static var prop_blacklist = ["regExpGen","serialize","skipForm"];
  
   static var class_blacklist = [
                           "dojo.data.util.simpleFetch",
-                          "dijit._MenuBase",
                           "dijit.form._FormValueWidget",
-                          "dijit.layout._Splitter",
-                          "dijit._Widget"
+                          "dijit.layout._Splitter"
                           ];
 
   // these should be in the provides api but aren't
@@ -65,10 +63,19 @@ class Create {
                              "dojox.widget.gauge.BarLineIndicator",
                              "dojox.wire.ml.Action",
                              "dojox.wire.ml.RestHandler",
-                             "dojox.wire.ml.ChildWire"
+                             "dojox.wire.ml.ChildWire",
+                             "dojox.form._BusyButtonMixin",
+                             "dojox.widget._CalendarDay",
+                             "dojox.widget._CalendarMonthYear"
                              ];
 
-  static var missingDijit = [];
+  static var missingDijit = ["dijit._MenuBase",
+                             "dijit._Widget",
+                             "dijit._MenuBarItemMixin",
+                             "dijit.form.ComboBoxMixin",
+                             "dijit.form.NumberTextBoxMixin"
+                            
+                             ];
 
   static var classLike = ["dojo.Deferred"];
   static var typedefLike = ["dojo.NodeList"];
@@ -219,14 +226,37 @@ class All {
   }
 
   static function
-  writeClassHeader(obj,cn) {
+  writeClassHeader(obj:Base,cn) {
+    var extended = false;
     fo.writeString("extern class "+cn);
     if (obj.superclass != null &&
         ! class_blacklist.exists(function(b) {
             return b == obj.superclass ; })) {
+      extended = true;
       fo.writeString(" extends "+obj.superclass);
     }
+
+    writeImplements(obj,cn,extended) ; 
     fo.writeString(" {\n");
+  }
+
+  static function
+  getImplements(obj:Base):Array<String> {
+    var mixins = Reflect.field(obj,"mixins");
+    if (mixins == null) return [];
+    var instance:Array<{location:String}> = Reflect.field(mixins,"instance");
+    if (instance == null) [];
+    return instance.map(function(el) { return el.location; }).array();
+  }
+  
+  static function
+  writeImplements(obj:Base,cn,extended) {
+    var sc = obj.superclass;
+    for (i in getImplements(obj)) {
+      if (i != sc) {
+        fo.writeString(((extended)? "," : "") + " implements "+i);
+      }
+    }
   }
 
   static function
@@ -245,7 +275,7 @@ class All {
       });
     
     if (curNS == "dijit") {
-      fo.writeString("function new(prms:Dynamic,id:String):Void;\n");
+      fo.writeString("function new(prms:Dynamic,?id:String):Void;\n");
     }
     
     fo.writeString("\n}\n");
@@ -280,7 +310,7 @@ class All {
   priv(m:Base) {
     var f = Reflect.field(m,"private");
     if (f) return true;
-    if (m.name.startsWith("_")) return true;
+    //    if (m.name.startsWith("_")) return true;
     return false;
   }
   
@@ -293,8 +323,8 @@ class All {
 
           commentIllegalName(m.name);
           
-          if (writePub)
-            fo.writeString("public ");
+          //          if (writePub)
+          //  fo.writeString("public ");
           
           fo.writeString("function ");
 
@@ -355,10 +385,33 @@ class All {
   }
 
   static function
+  aggregateInherited(obj:Base,type:String) {
+    var
+      bases = getImplements(obj),
+      final = new Array<Base>();
+
+    bases.iter(function(b) {
+        var attrs:Array<Base> = Reflect.field(lookup(b),type);
+        if (attrs != null) {
+          final = final.concat(attrs);
+        }
+      });
+
+    /*
+    if (bases.length > 1) {
+      trace("bases:"+bases.length+", "+obj.location);
+      trace("final:"+final);
+    }
+    */
+
+    return final;
+  }
+  
+  static function
   uniqueAttr(obj:Base,attr:Base,type:String) {
     if (obj.superclass != null) {
       var o = lookup(obj.superclass);
-      var superAttr:Array<Base> = Reflect.field(o,type);
+      var superAttr:Array<Base> = aggregateInherited(obj,type);
       if (superAttr != null) {
         if(superAttr.exists(function(pp) {
               return pp.name == attr.name; })) {
@@ -383,8 +436,8 @@ class All {
 
           commentIllegalName(p.name);
           
-          if (writePub)
-            fo.writeString("public ");
+          //if (writePub)
+          //  fo.writeString("public ");
           
           fo.writeString("var "+p.name+":"+getType(p.type)+";\n");
         }
