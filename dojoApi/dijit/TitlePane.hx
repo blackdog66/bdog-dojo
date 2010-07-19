@@ -6,5 +6,6 @@ public var open:Bool;
 public var duration:Int;
 public var templatePath:Dynamic;
 public var attributeMap:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

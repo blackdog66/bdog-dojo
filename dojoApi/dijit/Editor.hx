@@ -8,5 +8,6 @@ public var plugins:Dynamic;
 public var extraPlugins:Dynamic;
 public var customUndo:Bool;
 public var editActionInterval:Int;
+function new(prms:Dynamic,id:String):Void;
 
 }

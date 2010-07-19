@@ -10,5 +10,6 @@ public function focusPrev():Void;
 public function focusChild(widget:Dynamic,?node:Dynamic):Void;
 public var focusedChild:Dynamic;
 public var tabIndex:Int;
+function new(prms:Dynamic,id:String):Void;
 
 }

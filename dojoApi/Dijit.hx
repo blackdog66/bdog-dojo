@@ -40,5 +40,6 @@ var dijit:Dynamic;
 var demos:Dynamic;
 var robot:Dynamic;
 var robotx:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

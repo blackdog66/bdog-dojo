@@ -10,5 +10,6 @@ public var label:String;
 public var iconClass:String;
 public var accelKey:String;
 public var disabled:Bool;
+function new(prms:Dynamic,id:String):Void;
 
 }

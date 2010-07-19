@@ -6,5 +6,6 @@ public function onOpen(pos:Dynamic):Void;
 public var autofocus:Bool;
 public var templateString:Dynamic;
 public var templatePath:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

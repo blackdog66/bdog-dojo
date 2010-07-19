@@ -8,7 +8,7 @@ public function getErrorMessage(isFocused:Bool):String;
 public function getPromptMessage(isFocused:Bool):String;
 public function validate(isFocused:Bool):Void;
 public function displayMessage(message:String):Void;
-public function new():Void;
+public function constructor():Void;
 public var required:Bool;
 public var promptMessage:String;
 public var invalidMessage:String;
@@ -16,5 +16,6 @@ public var constraints:Dynamic;
 public var regExp:String;
 public var state:String;
 public var tooltipPosition:Array<String>;
+function new(prms:Dynamic,id:String):Void;
 
 }

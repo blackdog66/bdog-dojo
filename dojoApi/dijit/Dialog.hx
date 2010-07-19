@@ -11,5 +11,6 @@ public var duration:Int;
 public var refocus:Bool;
 public var autofocus:Bool;
 public var draggable:Bool;
+function new(prms:Dynamic,id:String):Void;
 
 }

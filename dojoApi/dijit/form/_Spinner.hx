@@ -6,5 +6,6 @@ public var defaultTimeout:Float;
 public var timeoutChangeRate:Float;
 public var smallDelta:Float;
 public var largeDelta:Float;
+function new(prms:Dynamic,id:String):Void;
 
 }

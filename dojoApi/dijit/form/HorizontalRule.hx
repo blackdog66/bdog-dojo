@@ -5,5 +5,6 @@ public var templateString:String;
 public var count:Int;
 public var container:String;
 public var ruleStyle:String;
+function new(prms:Dynamic,id:String):Void;
 
 }

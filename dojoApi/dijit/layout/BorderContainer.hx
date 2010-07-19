@@ -6,5 +6,6 @@ public var design:String;
 public var gutters:Bool;
 public var liveSplitters:Bool;
 public var persist:Bool;
+function new(prms:Dynamic,id:String):Void;
 
 }

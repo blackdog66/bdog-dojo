@@ -9,5 +9,6 @@ public function hasChildren():Bool;
 public function destroyDescendants(preserveDom:Bool):Void;
 public function getIndexOfChild(child:Dynamic):Int;
 public var isContainer:Bool;
+function new(prms:Dynamic,id:String):Void;
 
 }

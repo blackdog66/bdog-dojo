@@ -5,5 +5,6 @@ public function getParent():Void;
 public function getPreviousSibling():Dynamic;
 public function getNextSibling():Dynamic;
 public function getIndexInParent():Int;
+function new(prms:Dynamic,id:String):Void;
 
 }

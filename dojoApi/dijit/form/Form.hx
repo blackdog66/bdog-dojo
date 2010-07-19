@@ -15,5 +15,6 @@ public var accept:String;
 public var target:String;
 public var templateString:String;
 public var attributeMap:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

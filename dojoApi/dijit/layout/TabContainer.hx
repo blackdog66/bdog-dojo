@@ -6,5 +6,6 @@ public var tabStrip:Bool;
 public var nested:Bool;
 public var templateString:Dynamic;
 public var templatePath:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

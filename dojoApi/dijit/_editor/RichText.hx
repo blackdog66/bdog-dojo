@@ -30,5 +30,6 @@ public var disableSpellCheck:Bool;
 public var captureEvents:Array<String>;
 public var disabled:Bool;
 public var updateInterval:Float;
+function new(prms:Dynamic,id:String):Void;
 
 }

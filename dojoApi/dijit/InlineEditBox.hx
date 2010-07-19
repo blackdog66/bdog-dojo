@@ -16,5 +16,6 @@ public var editorParams:Dynamic;
 public var width:String;
 public var value:String;
 public var noValueIndicator:String;
+function new(prms:Dynamic,id:String):Void;
 
 }

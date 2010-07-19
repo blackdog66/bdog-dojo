@@ -13,5 +13,6 @@ public var propercase:Bool;
 public var maxLength:String;
 public var templatePath:Dynamic;
 public var displayedValue:String;
+function new(prms:Dynamic,id:String):Void;
 
 }

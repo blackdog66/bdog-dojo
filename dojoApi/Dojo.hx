@@ -19,7 +19,7 @@ function addOnWindowUnload(?obj:Dynamic,?functionName:Dynamic):Void;
 function addOnUnload(?obj:Dynamic,?functionName:Dynamic):Void;
 function pushContext(?g:Dynamic,?d:Dynamic):Array<Dynamic>;
 function popContext():Void;
-function byId(id:Dynamic,doc:Dynamic):Dynamic;
+function byId(id:Dynamic,?doc:Dynamic):Dynamic;
 function exit(exitcode:Dynamic):Void;
 function loaded():Void;
 function unloaded():Void;

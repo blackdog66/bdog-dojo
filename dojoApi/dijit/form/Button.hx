@@ -6,5 +6,6 @@ public var label:Dynamic;
 public var showLabel:Bool;
 public var iconClass:String;
 public var templatePath:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

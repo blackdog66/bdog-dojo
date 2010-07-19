@@ -7,5 +7,6 @@ public function back():Void;
 public var doLayout:Bool;
 public var persist:Bool;
 public var selectedChildWidget:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

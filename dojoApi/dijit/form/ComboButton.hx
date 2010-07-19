@@ -8,5 +8,6 @@ public function hasPrevFocalNode():Void;
 public function focusPrev():Void;
 public function getFocalNodes():Void;
 public var optionsTitle:String;
+function new(prms:Dynamic,id:String):Void;
 
 }

@@ -9,5 +9,6 @@ public function isValid():Void;
 public function onValidStateChange(isValid:Dynamic):Void;
 public function connectChildren():Void;
 public function startup():Void;
+function new(prms:Dynamic,id:String):Void;
 
 }

@@ -9,5 +9,6 @@ public var palette:String;
 public var value:String;
 public var templatePath:String;
 public var tabIndex:String;
+function new(prms:Dynamic,id:String):Void;
 
 }

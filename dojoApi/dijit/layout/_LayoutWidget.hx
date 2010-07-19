@@ -6,5 +6,6 @@ public function layout():Void;
 public function addChild(child:Dynamic,?insertIndex:Int):Void;
 public function removeChild(child:Dynamic):Void;
 public var baseClass:String;
+function new(prms:Dynamic,id:String):Void;
 
 }

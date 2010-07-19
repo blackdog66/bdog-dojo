@@ -9,5 +9,6 @@ public var maximum:Float;
 public var places:Float;
 public var indeterminate:Bool;
 public var templatePath:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

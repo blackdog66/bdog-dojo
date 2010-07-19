@@ -17,5 +17,6 @@ public var disabled:Bool;
 public var intermediateChanges:Bool;
 public var scrollOnFocus:Bool;
 public var attributeMap:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

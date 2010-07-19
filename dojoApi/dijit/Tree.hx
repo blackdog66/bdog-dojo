@@ -29,5 +29,6 @@ public var dndController:String;
 public var dndParams:Array<Dynamic>;
 public var dragThreshold:Int;
 public var betweenThreshold:Int;
+function new(prms:Dynamic,id:String):Void;
 
 }

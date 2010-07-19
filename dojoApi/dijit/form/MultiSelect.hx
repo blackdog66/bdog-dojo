@@ -8,5 +8,6 @@ public function invertSelection(onChange:Bool):Void;
 public function resize(size:Dynamic):Void;
 public var size:Float;
 public var templateString:String;
+function new(prms:Dynamic,id:String):Void;
 
 }

@@ -10,5 +10,6 @@ public var pageIncrement:Int;
 public var clickSelect:Bool;
 public var slideDuration:Float;
 public var widgetsInTemplate:Bool;
+function new(prms:Dynamic,id:String):Void;
 
 }

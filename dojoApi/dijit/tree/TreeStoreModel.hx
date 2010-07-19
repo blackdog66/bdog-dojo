@@ -17,5 +17,6 @@ public var childrenAttrs:Array<String>;
 public var labelAttr:String;
 public var root:Dynamic;
 public var query:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

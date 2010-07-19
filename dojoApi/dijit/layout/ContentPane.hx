@@ -26,5 +26,6 @@ public var baseClass:String;
 public var doLayout:Bool;
 public var ioArgs:Dynamic;
 public var isContainer:Bool;
+function new(prms:Dynamic,id:String):Void;
 
 }

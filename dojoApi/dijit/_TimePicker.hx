@@ -14,5 +14,6 @@ public var visibleIncrement:String;
 public var visibleRange:String;
 public var value:String;
 public var constraints:Dynamic;
+function new(prms:Dynamic,id:String):Void;
 
 }

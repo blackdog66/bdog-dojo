@@ -5,5 +5,6 @@ public function show():Void;
 public function hide():Void;
 public var templateString:String;
 public var dialogId:String;
+function new(prms:Dynamic,id:String):Void;
 
 }

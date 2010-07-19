@@ -6,5 +6,6 @@ public function onAddToRoot(item:Dynamic):Void;
 public function onLeaveRoot(item:Dynamic):Void;
 public var rootId:String;
 public var rootLabel:String;
+function new(prms:Dynamic,id:String):Void;
 
 }
