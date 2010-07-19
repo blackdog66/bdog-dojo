@@ -42,11 +42,10 @@ class Create {
   static var PROVIDES = "provides";
 
   static var keywords = [ "class", "callback"] ;
-  static var missingDojo = [];
+
   static var prop_blacklist = ["regExpGen","serialize"];
  
   static var class_blacklist = [
-                          "dojo.Deferred",
                           "dojo.data.util.simpleFetch",
                           "dijit._MenuBase",
                           "dijit.form._FormValueWidget",
@@ -55,6 +54,8 @@ class Create {
                           ];
 
   // these should be in the provides api but aren't
+  static var missingDojo = ["dojo.NodeList","dojo.Deferred"];
+  
   static var missingDojoX = [
                              "dojox.widget._CalendarBase",
                              "dojox.widget.gauge.AnalogLineIndicator",
@@ -67,12 +68,36 @@ class Create {
                              ];
 
   static var missingDijit = [];
+
+  static var classLike = ["dojo.Deferred"];
+  static var typedefLike = ["dojo.NodeList"];
   
   static function
   keyword(p:String) {
     return keywords.exists(function(kw) { return kw == p; });
   }
 
+  static function
+  treatAsClass(name:String) {
+    return classLike.exists(function(el) { return el == name; });
+  }
+
+  static function
+  treatAsTypedef(name:String) {
+    return typedefLike.exists(function(el) { return el == name; });
+  }
+
+  static function
+  blacklisted(name:String) {
+    return class_blacklist.exists(function(b) {return b == name ; });
+  }
+
+  static function
+  commentIllegalName(name:String) {
+    if (name.indexOf("-") != -1 || keyword(name))
+      fo.writeString("// ");
+  }
+  
   static function addMissing(n:String) {
     var ns = Reflect.field(api,n),
       provides = Reflect.field(ns,PROVIDES),
@@ -113,7 +138,8 @@ class Create {
     var s = js.io.File.getContent("api.json");
     api = JSON.decode(s);
     for (ns in names) {
-      topLevel(ns);
+      if (ns != "dojox")
+        topLevel(ns);
       addMissing(ns);
       nameSpace(Reflect.field(api,ns));
     }
@@ -131,8 +157,8 @@ class All {
     var top:Base = Reflect.field(api,ns),
       name = ns.substr(0,1).toUpperCase() + ns.substr(1);
     fo = js.io.File.write(to(name+".hx"),true);
-    writeClassHeader(top,name);
-    writeClass(top);
+    writeTypedefHeader(top,name);
+    writeBody(top,false);
     fo.close();
   }
   
@@ -152,25 +178,33 @@ class All {
       for (p in prv) {
         var actual = lookup(p);
         if (actual != null) {
-          if (actual.classlike && class_blacklist.exists(function(b) {
-            return b == actual.name ; })) {
+          var
+            asTypedef = treatAsTypedef(actual.location),
+            asClass = treatAsClass(actual.location);
+          
+          if ((actual.classlike && !blacklisted(actual.location))
+              || ( asTypedef || asClass)) {
             var s = p.split("."),
               path = s.join("/") + ".hx",
               dir = s.slice(0,-1);
 
             Os.mkdir(to(dir.join("/")));
             fo = js.io.File.write(to(path),true);
+            Os.println("Writing "+actual.location);
             all.writeString("import "+actual.location + ";\n");
             fo.writeString("package "+dir.join(".") +";\n\n");
-            writeClassHeader(actual,className(actual));
-            writeClass(actual);
+            if (asTypedef)
+              writeTypedefHeader(actual,className(actual));
+            else
+              writeClassHeader(actual,className(actual));
+            writeBody(actual,true);
             fo.close();
           }
         } else {
-          //          trace("missing def : "+p);
+          //trace("missing def : "+p);
         }
       }
-    }
+    } else trace("bugger");
   }
 
   static function
@@ -192,14 +226,19 @@ class All {
     }
     fo.writeString(" {\n");
   }
-  
+
   static function
-  writeClass(obj:Base) {
+  writeTypedefHeader(obj,cn) {
+    fo.writeString("typedef "+cn+" = {\n");
+  }
+
+  static function
+  writeBody(obj:Base,writePub = true) {
     eachMethod(obj,function(m) {
-        genMethod(obj,m);
+        genMethod(obj,m,writePub);
       });
     eachProperty(obj,function(p) {
-        genProp(obj,p);
+        genProp(obj,p,writePub);
       });
     fo.writeString("\n}\n");
   }
@@ -238,12 +277,19 @@ class All {
   }
   
   static function
-  genMethod(o:Base,m:Method) {
+  genMethod(o:Base,m:Method,writePub = true) {
     if (m.name != null) {
       if (!priv(m)) {
         var constructor = m.name == "constructor";
         if(uniqueAttr(o,m,METHODS) || constructor) {
-          fo.writeString("public function ");
+
+          commentIllegalName(m.name);
+          
+          if (writePub)
+            fo.writeString("public ");
+          
+          fo.writeString("function ");
+
           if (constructor)
             fo.writeString("new(");
           else
@@ -251,11 +297,11 @@ class All {
         
           genParam(m.parameters);
           
-          var ret = Reflect.field(m,"return-type");
+          var ret:Array<{type:String}> = Reflect.field(m,"return-types");
           if (ret == null || constructor)
-            ret = "Void";
-        
-          fo.writeString("):"+ret+";\n");
+            fo.writeString("):Void;\n");
+          else
+            fo.writeString("):"+getType(ret[0].type)+";\n");
         }
       }
     }
@@ -266,10 +312,11 @@ class All {
     if (prms != null) {
       var a = new Array<String>();
       for (p in prms) {
+        var opt = (p.usage == "optional") ? "?" : "";
         if (p.name == "callback")
-          a.push( "callBack:"+getType(p.type));
+          a.push(opt+"callBack:"+getType(p.type));
         else
-          a.push(p.name + ":"+getType(p.type));
+          a.push(opt+p.name + ":"+getType(p.type));
       }
       var s = a.join(",");
       fo.writeString(s);
@@ -292,6 +339,7 @@ class All {
     case "integer","int": "Int";
     case "array" : "Array<Dynamic>";
     case "date": "Date";
+    case "dojo.nodelist","nodelist" : "dojo.NodeList";
     default:
       "Dynamic";
     }
@@ -315,7 +363,7 @@ class All {
   }
 
   static function
-  genProp(obj:Base,p:Property) {
+  genProp(obj:Base,p:Property,writePub = true) {
     if (p != null) { 
       if (!priv(p)) {
         
@@ -323,9 +371,13 @@ class All {
               return pp == p.name; })) return;
       
         if (uniqueAttr(obj,p,PROPS)) {
-          if (p.name.indexOf("-") != -1 || keyword(p.name))
-            fo.writeString("// ");
-          fo.writeString("public var "+p.name+":"+getType(p.type)+";\n");
+
+          commentIllegalName(p.name);
+          
+          if (writePub)
+            fo.writeString("public ");
+          
+          fo.writeString("var "+p.name+":"+getType(p.type)+";\n");
         }
       }
     }
