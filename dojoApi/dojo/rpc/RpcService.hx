@@ -1,13 +1,13 @@
 package dojo.rpc;
 
 extern class RpcService {
-public function new(args:Dynamic):Void;
-public function parseResults(obj:Dynamic):Void;
-public function errorCallback(deferredRequestHandler:Dynamic):Void;
-public function resultCallback(deferredRequestHandler:Dynamic):Void;
-public function generateMethod(method:String,parameters:Array<Dynamic>,url:String):Void;
-public function processSmd(object:Dynamic):Void;
-public var strictArgChecks:Bool;
-public var serviceUrl:String;
+function new(args:Dynamic):Void;
+function parseResults(obj:Dynamic):Void;
+function errorCallback(deferredRequestHandler:Dynamic):Void;
+function resultCallback(deferredRequestHandler:Dynamic):Void;
+function generateMethod(method:String,parameters:Array<Dynamic>,url:String):Void;
+function processSmd(object:Dynamic):Void;
+var strictArgChecks:Bool;
+var serviceUrl:String;
 
 }

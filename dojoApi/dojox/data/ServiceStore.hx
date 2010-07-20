@@ -1,28 +1,28 @@
 package dojox.data;
 
 extern class ServiceStore extends dojox.data.ClientFilter {
-public function new(options:Dynamic):Void;
-public function getSchema():Void;
-public function getValue(item:Dynamic,property:String,?defaultValue:Dynamic):Dynamic;
-public function getValues(item:Dynamic,property:String):Void;
-public function getAttributes(item:Dynamic):Void;
-public function hasAttribute(item:Dynamic,attribute:String):Void;
-public function containsValue(item:Dynamic,attribute:String,value:Dynamic):Void;
-public function isItem(item:Dynamic):Void;
-public function isItemLoaded(item:Dynamic):Void;
-public function loadItem(args:Dynamic):Void;
-public function close(request:Dynamic):Void;
-public function fetch(args:Dynamic):Void;
-public function getFeatures():Void;
-public function getLabel(item:Dynamic):Void;
-public function getLabelAttributes(item:Dynamic):Void;
-public function getIdentity(item:Dynamic):Void;
-public function getIdentityAttributes(item:Dynamic):Void;
-public function fetchItemByIdentity(args:Dynamic):Void;
-public var schema:Dynamic;
-public var idAttribute:String;
-public var syncMode:Bool;
-public var estimateCountFactor:Float;
-public var loadLazyValues:Bool;
+function new(options:Dynamic):Void;
+function getSchema():Void;
+function getValue(item:Dynamic,property:String,?defaultValue:Dynamic):Dynamic;
+function getValues(item:Dynamic,property:String):Void;
+function getAttributes(item:Dynamic):Void;
+function hasAttribute(item:Dynamic,attribute:String):Void;
+function containsValue(item:Dynamic,attribute:String,value:Dynamic):Void;
+function isItem(item:Dynamic):Void;
+function isItemLoaded(item:Dynamic):Void;
+function loadItem(args:Dynamic):Void;
+function close(request:Dynamic):Void;
+function fetch(args:Dynamic):Void;
+function getFeatures():Void;
+function getLabel(item:Dynamic):Void;
+function getLabelAttributes(item:Dynamic):Void;
+function getIdentity(item:Dynamic):Void;
+function getIdentityAttributes(item:Dynamic):Void;
+function fetchItemByIdentity(args:Dynamic):Void;
+var schema:Dynamic;
+var idAttribute:String;
+var syncMode:Bool;
+var estimateCountFactor:Float;
+var loadLazyValues:Bool;
 
 }

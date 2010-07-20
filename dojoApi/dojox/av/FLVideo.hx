@@ -1,24 +1,34 @@
 package dojox.av;
 
-extern class FLVideo {
-public function play(?newUrl:String):Void;
-public function pause():Void;
-public function seek(time:Float):Void;
-public function volume(vol:Float):Float;
-public function onLoad(mov:Dynamic):Void;
-public function onDownloaded(percent:Dynamic):Void;
-public function onSwfSized(data:Dynamic):Void;
-public function onMetaData(data:Dynamic,evt:Dynamic):Void;
-public function onPosition(time:Dynamic):Void;
-public function onStart(data:Dynamic):Void;
-public function onPlay(data:Dynamic):Void;
-public function onPause(data:Dynamic):Void;
-public function onEnd(data:Dynamic):Void;
-public function onStop():Void;
-public function onBuffer(isBuffering:Dynamic):Void;
-public function onError(data:Dynamic,url:Dynamic):Void;
-public function onStatus(data:Dynamic):Void;
-public function onPlayerStatus(data:Dynamic):Void;
-public function onResize():Void;
+extern class FLVideo extends dijit._Widget {
+function getTime():Float;
+function onLoad(mov:Dynamic):Void;
+function onDownloaded(percent:Float):Void;
+function onSwfSized(data:Dynamic):Void;
+function onMetaData(data:Dynamic,evt:Dynamic):Void;
+function onPosition(time:Float):Void;
+function onStart(data:Dynamic):Void;
+function onPlay(data:Dynamic):Void;
+function onPause(data:Dynamic):Void;
+function onEnd(data:Dynamic):Void;
+function onStop():Void;
+function onBuffer(isBuffering:Bool):Void;
+function onError(data:Dynamic,url:String):Void;
+function onStatus(data:Dynamic):Void;
+function onPlayerStatus(data:Dynamic):Void;
+function onResize():Void;
+function play(?newUrl:String):Void;
+function pause():Void;
+function seek(time:Float):Void;
+function volume(vol:Float):Float;
+var mediaUrl:String;
+var initialVolume:Float;
+var autoPlay:Bool;
+var bufferTime:Float;
+var minBufferTime:Float;
+var updateTime:Float;
+var isDebug:Bool;
+var percentDownloaded:Dynamic;
+var flashMedia:Dynamic;
 
 }

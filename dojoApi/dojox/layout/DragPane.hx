@@ -1,6 +1,6 @@
 package dojox.layout;
 
-extern class DragPane {
-public var invert:Bool;
+extern class DragPane extends dijit._Widget {
+var invert:Bool;
 
 }

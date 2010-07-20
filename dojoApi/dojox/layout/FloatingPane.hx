@@ -1,22 +1,25 @@
 package dojox.layout;
 
 extern class FloatingPane extends dojox.layout.ContentPane {
-public function setTitle(title:String):Void;
-public function close():Void;
-public function hide(?callBack:Dynamic):Void;
-public function show(?callBack:Dynamic):Void;
-public function minimize():Void;
-public function maximize():Void;
-public function bringToTop():Void;
-public var dockable:Bool;
-public var resizable:Bool;
-public var maxable:Bool;
-public var resizeAxis:String;
-public var dockTo:Dynamic;
-public var duration:Int;
-public var iconSrc:String;
-public var contentClass:String;
-public var templateString:Dynamic;
-public var templatePath:Dynamic;
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function setTitle(title:String):Void;
+function close():Void;
+function hide(?callBack:Dynamic):Void;
+function show(?callBack:Dynamic):Void;
+function minimize():Void;
+function maximize():Void;
+function bringToTop():Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var dockable:Bool;
+var resizable:Bool;
+var maxable:Bool;
+var resizeAxis:String;
+var dockTo:Dynamic;
+var duration:Int;
+var iconSrc:String;
+var contentClass:String;
 
 }

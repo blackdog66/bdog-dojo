@@ -1,9 +1,13 @@
 package dojox.layout;
 
 extern class RadioGroup extends dijit.layout.StackContainer {
-public var duration:Int;
-public var hasButtons:Bool;
-public var buttonClass:String;
-public var templateString:String;
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var duration:Int;
+var hasButtons:Bool;
+var buttonClass:String;
 
 }

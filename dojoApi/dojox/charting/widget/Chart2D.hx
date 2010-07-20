@@ -1,10 +1,10 @@
 package dojox.charting.widget;
 
-extern class Chart2D {
-public function resize(box:Dynamic):Void;
-public var theme:Dynamic;
-public var margins:Dynamic;
-public var stroke:Dynamic;
-public var fill:Dynamic;
+extern class Chart2D extends dijit._Widget {
+function resize(box:Dynamic):Void;
+var theme:Dynamic;
+var margins:Dynamic;
+var stroke:Dynamic;
+var fill:Dynamic;
 
 }

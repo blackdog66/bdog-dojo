@@ -1,13 +1,13 @@
 package dojox.widget;
 
 extern class AnalogGauge extends dojox.widget.gauge._Gauge {
-public function draw():Void;
-public function drawRange(range:Dynamic):Void;
-public function getRangeUnderMouse(event:Dynamic):Void;
-public var startAngle:Float;
-public var endAngle:Float;
-public var cx:Float;
-public var cy:Float;
-public var radius:Float;
+function draw():Void;
+function drawRange(range:Dynamic):Void;
+function getRangeUnderMouse(event:Dynamic):Void;
+var startAngle:Float;
+var endAngle:Float;
+var cx:Float;
+var cy:Float;
+var radius:Float;
 
 }

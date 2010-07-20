@@ -1,22 +1,22 @@
 package dojo.dnd;
 
 extern class Moveable {
-public function new(node:Dynamic,params:Dynamic):Void;
-public function markupFactory(params:Dynamic,node:Dynamic):Void;
-public function destroy():Void;
-public function onMouseDown(e:Dynamic):Void;
-public function onMouseMove(e:Dynamic):Void;
-public function onMouseUp(e:Dynamic):Void;
-public function onSelectStart(e:Dynamic):Void;
-public function onDragDetected(e:Dynamic):Void;
-public function onMoveStart(mover:Dynamic):Void;
-public function onMoveStop(mover:Dynamic):Void;
-public function onFirstMove(mover:Dynamic):Void;
-public function onMove(mover:Dynamic,leftTop:Dynamic):Void;
-public function onMoving(mover:Dynamic,leftTop:Dynamic):Void;
-public function onMoved(mover:Dynamic,leftTop:Dynamic):Void;
-public var handle:Dynamic;
-public var delay:Float;
-public var skip:Bool;
+function new(node:Dynamic,params:Dynamic):Void;
+function markupFactory(params:Dynamic,node:Dynamic):Void;
+function destroy():Void;
+function onMouseDown(e:Dynamic):Void;
+function onMouseMove(e:Dynamic):Void;
+function onMouseUp(e:Dynamic):Void;
+function onSelectStart(e:Dynamic):Void;
+function onDragDetected(e:Dynamic):Void;
+function onMoveStart(mover:Dynamic):Void;
+function onMoveStop(mover:Dynamic):Void;
+function onFirstMove(mover:Dynamic):Void;
+function onMove(mover:Dynamic,leftTop:Dynamic):Void;
+function onMoving(mover:Dynamic,leftTop:Dynamic):Void;
+function onMoved(mover:Dynamic,leftTop:Dynamic):Void;
+var handle:Dynamic;
+var delay:Float;
+var skip:Bool;
 
 }

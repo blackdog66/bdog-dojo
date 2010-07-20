@@ -1,12 +1,12 @@
 package dojox.wire.ml;
 
-extern class DataStore {
-public function getFeatures():Dynamic;
-public function fetch(request:Dynamic):Dynamic;
-public function save(args:Dynamic):Void;
-public function newItem(args:Dynamic):Dynamic;
-public function deleteItem(item:Dynamic):Bool;
-public function revert():Bool;
-public var storeClass:Dynamic;
+extern class DataStore extends dijit._Widget {
+function getFeatures():Dynamic;
+function fetch(request:Dynamic):Dynamic;
+function save(args:Dynamic):Void;
+function newItem(args:Dynamic):Dynamic;
+function deleteItem(item:Dynamic):Bool;
+function revert():Bool;
+var storeClass:Dynamic;
 
 }

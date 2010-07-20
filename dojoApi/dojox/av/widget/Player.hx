@@ -1,9 +1,12 @@
 package dojox.av.widget;
 
-extern class Player {
-public function onResize(evt:Dynamic):Void;
-public var playerWidth:Float;
-public var widgetsInTemplate:Bool;
-public var templatePath:Dynamic;
+extern class Player extends dijit._Widget {
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function onResize(evt:Dynamic):Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var playerWidth:Float;
 
 }

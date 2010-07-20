@@ -41,7 +41,7 @@ class Create {
   static var METHODS = "methods";
   static var PROPS = "properties";
   static var PROVIDES = "provides";
-
+  
   static var keywords = [ "class", "callback"] ;
 
   static var prop_blacklist = ["regExpGen","serialize","skipForm"];
@@ -236,7 +236,7 @@ class All {
       fo.writeString(" extends "+obj.superclass);
     }
 
-    writeImplements(obj,cn,extended) ; 
+    //writeImplements(obj,cn,extended) ; 
     fo.writeString(" {\n");
   }
 
@@ -246,9 +246,12 @@ class All {
     if (mixins == null) return [];
     var instance:Array<{location:String}> = Reflect.field(mixins,"instance");
     if (instance == null) [];
-    return instance.map(function(el) { return el.location; }).array();
+    return instance
+      .filter(function(el) { return el.location != obj.superclass;})
+      .map(function(el) { return el.location; }).array();
   }
   
+  /*
   static function
   writeImplements(obj:Base,cn,extended) {
     var sc = obj.superclass;
@@ -258,6 +261,7 @@ class All {
       }
     }
   }
+  */
 
   static function
   writeTypedefHeader(obj,cn) {
@@ -275,7 +279,7 @@ class All {
       });
     
     if (curNS == "dijit") {
-      fo.writeString("function new(prms:Dynamic,?id:String):Void;\n");
+      fo.writeString("function new(prms:Dynamic,?name:String):Void;\n");
     }
     
     fo.writeString("\n}\n");
@@ -288,7 +292,8 @@ class All {
 
   static function
   eachProperty(obj:Dynamic,cb:Property->Void) {
-    var props = getProps(obj);
+    //var props = getProps(obj);
+    var props:Array<Property> = aggregateAttrs(obj,PROPS);
     if (props != null) {
       for (p in props) {
         cb(p);
@@ -298,7 +303,8 @@ class All {
 
   static function 
   eachMethod(obj:Dynamic,cb:Method->Void) {
-    var mthds:Array<Method> = Reflect.field(obj,METHODS);
+    //    var mthds:Array<Method> = Reflect.field(obj,METHODS);
+    var mthds:Array<Method> = aggregateAttrs(obj,METHODS);
     if (mthds != null) {
       for(m in mthds) {
         cb(m);
@@ -320,7 +326,6 @@ class All {
     if (m.name != null) {
       if (!priv(m)) {
         if(uniqueAttr(o,m,METHODS) || constructor) {
-
           commentIllegalName(m.name);
           
           //          if (writePub)
@@ -385,15 +390,22 @@ class All {
   }
 
   static function
-  aggregateInherited(obj:Base,type:String) {
+  aggregateAttrs(obj:Base,type:String):Dynamic {
     var
       bases = getImplements(obj),
-      final = new Array<Base>();
+      unique = new Hash<Base>();
 
+    bases.push(obj.location);
+    
     bases.iter(function(b) {
         var attrs:Array<Base> = Reflect.field(lookup(b),type);
         if (attrs != null) {
-          final = final.concat(attrs);
+          for (a in attrs) {
+            if (!unique.exists(a.name)) {
+              //trace("unique is "+a.name);
+              unique.set(a.name,a);
+            }
+          }
         }
       });
 
@@ -403,15 +415,16 @@ class All {
       trace("final:"+final);
     }
     */
-
-    return final;
+    //trace("array len = "+unique.array().length);
+      return unique.array();
   }
   
   static function
   uniqueAttr(obj:Base,attr:Base,type:String) {
     if (obj.superclass != null) {
       var o = lookup(obj.superclass);
-      var superAttr:Array<Base> = aggregateInherited(obj,type);
+      //var superAttr:Array<Base> = Reflect.field(o,type);
+      var superAttr:Array<Base> = aggregateAttrs(o,type);
       if (superAttr != null) {
         if(superAttr.exists(function(pp) {
               return pp.name == attr.name; })) {

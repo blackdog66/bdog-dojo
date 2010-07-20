@@ -1,9 +1,9 @@
 package dojox.gfx;
 
 extern class Mover {
-public function new(shape:Dynamic,e:Dynamic,?host:Dynamic):Void;
-public function onMouseMove(e:Dynamic):Void;
-public function onFirstMove():Void;
-public function destroy():Void;
+function new(shape:Dynamic,e:Dynamic,?host:Dynamic):Void;
+function onMouseMove(e:Dynamic):Void;
+function onFirstMove():Void;
+function destroy():Void;
 
 }

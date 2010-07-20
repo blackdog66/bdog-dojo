@@ -1,15 +1,19 @@
 package dijit.form;
 
 extern class HorizontalSlider {
-public var templatePath:Dynamic;
-public var showButtons:Bool;
-public var minimum:Int;
-public var maximum:Int;
-public var discreteValues:Int;
-public var pageIncrement:Int;
-public var clickSelect:Bool;
-public var slideDuration:Float;
-public var widgetsInTemplate:Bool;
-function new(prms:Dynamic,id:String):Void;
+function addChild(widget:Dynamic,?insertIndex:Int):Void;
+function removeChild(widget:Dynamic):Void;
+function hasChildren():Bool;
+function getIndexOfChild(child:Dynamic):Int;
+function _isReversed():Void;
+var isContainer:Bool;
+var showButtons:Bool;
+var minimum:Int;
+var maximum:Int;
+var discreteValues:Int;
+var pageIncrement:Int;
+var clickSelect:Bool;
+var slideDuration:Float;
+function new(prms:Dynamic,?name:String):Void;
 
 }

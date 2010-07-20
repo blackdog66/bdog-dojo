@@ -1,6 +1,6 @@
 package dojo.data.api;
 
 extern class Request {
-public function abort():Void;
+function abort():Void;
 
 }

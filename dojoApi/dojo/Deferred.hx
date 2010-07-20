@@ -1,12 +1,12 @@
 package dojo;
 
 extern class Deferred {
-public function cancel():Void;
-// public function callback(res:Dynamic):Void;
-public function errback(res:Dynamic):Void;
-public function addBoth(cb:Dynamic,?cbfn:String):Dynamic;
-public function addCallback(cb:Dynamic,?cbfn:String):Dynamic;
-public function addErrback(cb:Dynamic,cbfn:Dynamic):Dynamic;
-public function addCallbacks(cb:Dynamic,eb:Dynamic):Dynamic;
+function cancel():Void;
+// function callback(res:Dynamic):Void;
+function errback(res:Dynamic):Void;
+function addBoth(cb:Dynamic,?cbfn:String):Dynamic;
+function addCallback(cb:Dynamic,?cbfn:String):Dynamic;
+function addErrback(cb:Dynamic,cbfn:Dynamic):Dynamic;
+function addCallbacks(cb:Dynamic,eb:Dynamic):Dynamic;
 
 }

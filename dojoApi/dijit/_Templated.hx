@@ -1,11 +1,12 @@
 package dijit;
 
 extern class _Templated {
-public function buildRendering():Void;
-public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-public var templateString:String;
-public var templatePath:String;
-public var widgetsInTemplate:Bool;
-function new(prms:Dynamic,id:String):Void;
+function buildRendering():Void;
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+function new(prms:Dynamic,?name:String):Void;
 
 }

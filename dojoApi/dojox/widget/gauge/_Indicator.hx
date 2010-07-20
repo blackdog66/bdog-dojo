@@ -1,23 +1,31 @@
 package dojox.widget.gauge;
 
-extern class _Indicator {
-public function update(value:Dynamic):Void;
-public function onDragMove():Void;
-public function draw(?dontAnimate:Bool):Void;
-public function remove():Void;
-public var value:Float;
-public var type:String;
-public var color:String;
-public var label:String;
-public var length:Float;
-public var width:Float;
-public var offset:Float;
-public var hover:String;
-public var front:Bool;
-public var easing:Dynamic;
-public var duration:Float;
-public var hideValue:Bool;
-public var noChange:Bool;
-public var templatePath:Dynamic;
+extern class _Indicator extends dijit._Widget {
+function getParent():Void;
+function getPreviousSibling():Dynamic;
+function getNextSibling():Dynamic;
+function getIndexInParent():Int;
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function update(value:Dynamic):Void;
+function onDragMove():Void;
+function draw(?dontAnimate:Bool):Void;
+function remove():Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var value:Float;
+var type:String;
+var color:String;
+var label:String;
+var length:Float;
+var width:Float;
+var offset:Float;
+var hover:String;
+var front:Bool;
+var easing:Dynamic;
+var duration:Float;
+var hideValue:Bool;
+var noChange:Bool;
 
 }

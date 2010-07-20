@@ -1,12 +1,12 @@
 package dojox.editor.plugins;
 
 extern class UploadImage extends dijit._editor._Plugin {
-public function createFileInput():Void;
-public function onComplete(data:Dynamic,ioArgs:Dynamic,widgetRef:Dynamic):Void;
-public function insertTempImage():Void;
-public var tempImageUrl:String;
-public var uploadUrl:String;
-public var fileInput:Dynamic;
-public var label:String;
+function createFileInput():Void;
+function onComplete(data:Dynamic,ioArgs:Dynamic,widgetRef:Dynamic):Void;
+function insertTempImage():Void;
+var tempImageUrl:String;
+var uploadUrl:String;
+var fileInput:Dynamic;
+var label:String;
 
 }

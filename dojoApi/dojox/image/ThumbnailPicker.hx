@@ -1,30 +1,34 @@
 package dojox.image;
 
-extern class ThumbnailPicker {
-public function init():Void;
-public function getClickTopicName():String;
-public function getShowTopicName():String;
-public function setDataStore(dataStore:Dynamic,request:Dynamic,paramNames:Dynamic):Void;
-public function reset():Void;
-public function isVisible(index:Dynamic):Void;
-public function markImageLoaded(index:Dynamic):Void;
-public var imageStore:Dynamic;
-public var request:Dynamic;
-public var size:Float;
-public var thumbHeight:Float;
-public var thumbWidth:Float;
-public var useLoadNotifier:Bool;
-public var useHyperlink:Bool;
-public var hyperlinkTarget:String;
-public var isClickable:Bool;
-public var isScrollable:Bool;
-public var isHorizontal:Bool;
-public var autoLoad:Bool;
-public var linkAttr:String;
-public var imageThumbAttr:String;
-public var imageLargeAttr:String;
-public var pageSize:Float;
-public var titleAttr:String;
-public var templatePath:Dynamic;
+extern class ThumbnailPicker extends dijit._Widget {
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function init():Void;
+function getClickTopicName():String;
+function getShowTopicName():String;
+function setDataStore(dataStore:Dynamic,request:Dynamic,paramNames:Dynamic):Void;
+function reset():Void;
+function isVisible(index:Dynamic):Void;
+function markImageLoaded(index:Dynamic):Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var imageStore:Dynamic;
+var request:Dynamic;
+var size:Float;
+var thumbHeight:Float;
+var thumbWidth:Float;
+var useLoadNotifier:Bool;
+var useHyperlink:Bool;
+var hyperlinkTarget:String;
+var isClickable:Bool;
+var isScrollable:Bool;
+var isHorizontal:Bool;
+var autoLoad:Bool;
+var linkAttr:String;
+var imageThumbAttr:String;
+var imageLargeAttr:String;
+var pageSize:Float;
+var titleAttr:String;
 
 }

@@ -1,14 +1,18 @@
 package dojox.image;
 
-extern class Badge {
-public var baseClass:String;
-public var templateString:String;
-public var children:String;
-public var rows:Int;
-public var cols:Int;
-public var cellSize:Int;
-public var delay:Int;
-public var threads:Int;
-public var easing:Dynamic;
+extern class Badge extends dijit._Widget {
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var baseClass:String;
+var children:String;
+var rows:Int;
+var cols:Int;
+var cellSize:Int;
+var delay:Int;
+var threads:Int;
+var easing:Dynamic;
 
 }

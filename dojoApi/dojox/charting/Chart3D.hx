@@ -1,13 +1,13 @@
 package dojox.charting;
 
 extern class Chart3D {
-public function new(node:Dynamic,lights:Dynamic,camera:Dynamic,theme:Dynamic):Void;
-public function generate():Void;
-public function invalidate():Void;
-public function render():Void;
-public function addPlot(plot:Dynamic):Void;
-public function removePlot(plot:Dynamic):Void;
-public function addWall(wall:Dynamic):Void;
-public function removeWall(wall:Dynamic):Void;
+function new(node:Dynamic,lights:Dynamic,camera:Dynamic,theme:Dynamic):Void;
+function generate():Void;
+function invalidate():Void;
+function render():Void;
+function addPlot(plot:Dynamic):Void;
+function removePlot(plot:Dynamic):Void;
+function addWall(wall:Dynamic):Void;
+function removeWall(wall:Dynamic):Void;
 
 }

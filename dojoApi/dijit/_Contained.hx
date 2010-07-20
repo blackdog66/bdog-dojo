@@ -1,10 +1,10 @@
 package dijit;
 
 extern class _Contained {
-public function getParent():Void;
-public function getPreviousSibling():Dynamic;
-public function getNextSibling():Dynamic;
-public function getIndexInParent():Int;
-function new(prms:Dynamic,id:String):Void;
+function getParent():Void;
+function getPreviousSibling():Dynamic;
+function getNextSibling():Dynamic;
+function getIndexInParent():Int;
+function new(prms:Dynamic,?name:String):Void;
 
 }

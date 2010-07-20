@@ -1,30 +1,30 @@
 package dojox.grid;
 
 extern class _ViewManager {
-public function new(inGrid:Dynamic):Void;
-public function resize():Void;
-public function render():Void;
-public function addView(inView:Dynamic):Void;
-public function destroyViews():Void;
-public function getContentNodes():Void;
-public function forEach(inCallback:Dynamic):Void;
-public function onEach(inMethod:Dynamic,inArgs:Dynamic):Void;
-public function normalizeHeaderNodeHeight():Void;
-public function normalizeRowNodeHeights(inRowNodes:Dynamic):Void;
-public function resetHeaderNodeHeight():Void;
-public function renormalizeRow(inRowIndex:Dynamic):Void;
-public function getViewWidth(inIndex:Dynamic):Void;
-public function measureHeader():Void;
-public function measureContent():Void;
-public function findClient(inAutoWidth:Dynamic):Void;
-public function arrange(l:Dynamic,w:Dynamic):Void;
-public function renderRow(inRowIndex:Dynamic,inNodes:Dynamic):Void;
-public function rowRemoved(inRowIndex:Dynamic):Void;
-public function updateRow(inRowIndex:Dynamic):Void;
-public function updateRowStyles(inRowIndex:Dynamic):Void;
-public function setScrollTop(inTop:Dynamic):Void;
-public function getFirstScrollingView():Void;
-public var defaultWidth:Float;
-public var views:Array<Dynamic>;
+function new(inGrid:Dynamic):Void;
+function resize():Void;
+function render():Void;
+function addView(inView:Dynamic):Void;
+function destroyViews():Void;
+function getContentNodes():Void;
+function forEach(inCallback:Dynamic):Void;
+function onEach(inMethod:Dynamic,inArgs:Dynamic):Void;
+function normalizeHeaderNodeHeight():Void;
+function normalizeRowNodeHeights(inRowNodes:Dynamic):Void;
+function resetHeaderNodeHeight():Void;
+function renormalizeRow(inRowIndex:Dynamic):Void;
+function getViewWidth(inIndex:Dynamic):Void;
+function measureHeader():Void;
+function measureContent():Void;
+function findClient(inAutoWidth:Dynamic):Void;
+function arrange(l:Dynamic,w:Dynamic):Void;
+function renderRow(inRowIndex:Dynamic,inNodes:Dynamic):Void;
+function rowRemoved(inRowIndex:Dynamic):Void;
+function updateRow(inRowIndex:Dynamic):Void;
+function updateRowStyles(inRowIndex:Dynamic):Void;
+function setScrollTop(inTop:Dynamic):Void;
+function getFirstScrollingView():Void;
+var defaultWidth:Float;
+var views:Array<Dynamic>;
 
 }

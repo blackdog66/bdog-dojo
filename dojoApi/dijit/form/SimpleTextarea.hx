@@ -1,9 +1,8 @@
 package dijit.form;
 
 extern class SimpleTextarea extends dijit.form.TextBox {
-public var rows:Float;
-public var cols:String;
-public var templateString:String;
-function new(prms:Dynamic,id:String):Void;
+var rows:Float;
+var cols:String;
+function new(prms:Dynamic,?name:String):Void;
 
 }

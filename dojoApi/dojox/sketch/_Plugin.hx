@@ -1,24 +1,24 @@
 package dojox.sketch;
 
 extern class _Plugin {
-public function new(?args:Dynamic):Void;
-public function attr(name:Dynamic,value:Dynamic):Void;
-public function onActivate():Void;
-public function activate(e:Dynamic):Void;
-public function onMouseDown(e:Dynamic):Void;
-public function onMouseMove(e:Dynamic):Void;
-public function onMouseUp(e:Dynamic):Void;
-public function destroy(f:Dynamic):Void;
-public function connect(o:Dynamic,f:Dynamic,tf:Dynamic):Void;
-public function setFigure(figure:Dynamic):Void;
-public function setToolbar(toolbar:Dynamic):Void;
-public var figure:Dynamic;
-public var iconClassPrefix:String;
-public var itemGroup:String;
-public var button:Dynamic;
-public var queryCommand:Dynamic;
-public var shape:String;
-public var useDefaultCommand:Bool;
-public var buttonClass:Dynamic;
+function new(?args:Dynamic):Void;
+function attr(name:Dynamic,value:Dynamic):Void;
+function onActivate():Void;
+function activate(e:Dynamic):Void;
+function onMouseDown(e:Dynamic):Void;
+function onMouseMove(e:Dynamic):Void;
+function onMouseUp(e:Dynamic):Void;
+function destroy(f:Dynamic):Void;
+function connect(o:Dynamic,f:Dynamic,tf:Dynamic):Void;
+function setFigure(figure:Dynamic):Void;
+function setToolbar(toolbar:Dynamic):Void;
+var figure:Dynamic;
+var iconClassPrefix:String;
+var itemGroup:String;
+var button:Dynamic;
+var queryCommand:Dynamic;
+var shape:String;
+var useDefaultCommand:Bool;
+var buttonClass:Dynamic;
 
 }

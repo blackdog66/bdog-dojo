@@ -1,22 +1,27 @@
 package dijit.form;
 
-extern class _FormWidget {
-public function setDisabled(disabled:Bool):Void;
-public function focus():Void;
-public function compare(val1:Dynamic,val2:Dynamic):Void;
-public function onChange(newValue:Dynamic):Void;
-public function setValue(value:String):Void;
-public function getValue():Void;
-public var baseClass:String;
-public var name:String;
-public var alt:String;
-public var value:String;
-public var type:String;
-public var tabIndex:Int;
-public var disabled:Bool;
-public var intermediateChanges:Bool;
-public var scrollOnFocus:Bool;
-public var attributeMap:Dynamic;
-function new(prms:Dynamic,id:String):Void;
+extern class _FormWidget extends dijit._Widget {
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function setDisabled(disabled:Bool):Void;
+function focus():Void;
+function compare(val1:Dynamic,val2:Dynamic):Void;
+function onChange(newValue:Dynamic):Void;
+function setValue(value:String):Void;
+function getValue():Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var baseClass:String;
+var name:String;
+var alt:String;
+var value:String;
+var type:String;
+var tabIndex:Int;
+var disabled:Bool;
+var intermediateChanges:Bool;
+var scrollOnFocus:Bool;
+var attributeMap:Dynamic;
+function new(prms:Dynamic,?name:String):Void;
 
 }

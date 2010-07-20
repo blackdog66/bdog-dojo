@@ -1,6 +1,7 @@
 package dijit.form;
 
 extern class NumberSpinner extends dijit.form._Spinner {
-function new(prms:Dynamic,id:String):Void;
+function _formatter(value:Float,?options:Dynamic):String;
+function new(prms:Dynamic,?name:String):Void;
 
 }

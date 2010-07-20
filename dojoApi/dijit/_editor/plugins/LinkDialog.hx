@@ -1,8 +1,8 @@
 package dijit._editor.plugins;
 
 extern class LinkDialog extends dijit._editor._Plugin {
-public var urlRegExp:String;
-public var linkDialogTemplate:String;
-function new(prms:Dynamic,id:String):Void;
+var urlRegExp:String;
+var linkDialogTemplate:String;
+function new(prms:Dynamic,?name:String):Void;
 
 }

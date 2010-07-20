@@ -1,15 +1,25 @@
 package dijit;
 
-extern class MenuItem {
-public function focus():Void;
-public function setLabel(content:String):Void;
-public function setDisabled(disabled:Bool):Void;
-public var templatePath:Dynamic;
-public var attributeMap:Dynamic;
-public var label:String;
-public var iconClass:String;
-public var accelKey:String;
-public var disabled:Bool;
-function new(prms:Dynamic,id:String):Void;
+extern class MenuItem extends dijit._Widget {
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function getParent():Void;
+function getPreviousSibling():Dynamic;
+function getNextSibling():Dynamic;
+function getIndexInParent():Int;
+function _onHover():Void;
+function _onUnhover():Void;
+function focus():Void;
+function setLabel(content:String):Void;
+function setDisabled(disabled:Bool):Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var attributeMap:Dynamic;
+var label:String;
+var iconClass:String;
+var accelKey:String;
+var disabled:Bool;
+function new(prms:Dynamic,?name:String):Void;
 
 }

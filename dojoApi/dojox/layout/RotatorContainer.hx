@@ -1,17 +1,21 @@
 package dojox.layout;
 
 extern class RotatorContainer extends dijit.layout.StackContainer {
-public var templateString:String;
-public var showTabs:Bool;
-public var transitionDelay:Int;
-public var transition:String;
-public var transitionDuration:Int;
-public var autoStart:Bool;
-public var suspendOnHover:Bool;
-public var pauseOnManualChange:Bool;
-public var reverse:Bool;
-public var pagerId:String;
-public var cycles:Int;
-public var pagerClass:String;
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var showTabs:Bool;
+var transitionDelay:Int;
+var transition:String;
+var transitionDuration:Int;
+var autoStart:Bool;
+var suspendOnHover:Bool;
+var pauseOnManualChange:Bool;
+var reverse:Bool;
+var pagerId:String;
+var cycles:Int;
+var pagerClass:String;
 
 }

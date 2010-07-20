@@ -1,12 +1,12 @@
 package dojox.image;
 
-extern class Lightbox {
-public function show():Void;
-public function hide():Void;
-public function disable():Void;
-public function enable():Void;
-public var href:String;
-public var duration:Int;
-public var modal:Bool;
+extern class Lightbox extends dijit._Widget {
+function show():Void;
+function hide():Void;
+function disable():Void;
+function enable():Void;
+var href:String;
+var duration:Int;
+var modal:Bool;
 
 }

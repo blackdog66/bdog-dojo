@@ -1,13 +1,13 @@
 package dojo.fx;
 
 extern class Toggler {
-public function new(args:Dynamic):Void;
-public function showFunc():Void;
-public function hideFunc():Void;
-public function show(delay:Dynamic):Void;
-public function hide(delay:Dynamic):Void;
-public var node:Dynamic;
-public var showDuration:Dynamic;
-public var hideDuration:Dynamic;
+function new(args:Dynamic):Void;
+function showFunc():Void;
+function hideFunc():Void;
+function show(delay:Dynamic):Void;
+function hide(delay:Dynamic):Void;
+var node:Dynamic;
+var showDuration:Dynamic;
+var hideDuration:Dynamic;
 
 }

@@ -1,14 +1,18 @@
 package dijit;
 
-extern class ProgressBar {
-public function update(?attributes:Dynamic):Void;
-public function report(percent:Float):Void;
-public function onChange():Void;
-public var progress:String;
-public var maximum:Float;
-public var places:Float;
-public var indeterminate:Bool;
-public var templatePath:Dynamic;
-function new(prms:Dynamic,id:String):Void;
+extern class ProgressBar extends dijit._Widget {
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function update(?attributes:Dynamic):Void;
+function report(percent:Float):Void;
+function onChange():Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var progress:String;
+var maximum:Float;
+var places:Float;
+var indeterminate:Bool;
+function new(prms:Dynamic,?name:String):Void;
 
 }

@@ -1,16 +1,16 @@
 package dojox.charting.widget;
 
 extern class Sparkline extends dojox.charting.widget.Chart2D {
-public var type:String;
-public var valueFn:String;
-public var store:String;
-public var field:String;
-public var query:String;
-public var queryOptions:String;
-public var start:String;
-public var count:String;
-public var sort:String;
-public var data:String;
-public var name:String;
+var type:String;
+var valueFn:String;
+var store:String;
+var field:String;
+var query:String;
+var queryOptions:String;
+var start:String;
+var count:String;
+var sort:String;
+var data:String;
+var name:String;
 
 }

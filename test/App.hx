@@ -38,10 +38,11 @@ class App {
 
     dojo.require("dijit.Dialog");
     dojo.require("dijit.form.Button");
+    dojo.require("dijit.Menu");
     
     dojo.addOnLoad({},function(){
         // create a "hidden" Dialog:
-        var dialog = new dijit.Dialog({ title:"Hello Dijit!" }, "someId");
+        var dialog = new dijit.Dialog({ title:"Hello Dijit!" });
         //    dialog.startup();
         
 
@@ -49,7 +50,7 @@ class App {
            label: "Click me!",
            onClick: function() {
                // Do something:
-               dojo.byId("result1").innerHTML += "Thank you! ";
+               dojo.byId("result1",null).innerHTML += "Thank you! ";
                dialog.show();
                
              }
@@ -57,6 +58,43 @@ class App {
            "progButtonNode");
 
          
+         var pMenu = new dijit.Menu({
+            targetNodeIds: ["prog_menu"]
+                    });
+        pMenu.addChild(new dijit.MenuItem({
+            label: "Simple menu item"
+        }));
+        pMenu.addChild(new dijit.MenuItem({
+            label: "Disabled menu item",
+            disabled: true
+        }));
+        pMenu.addChild(new dijit.MenuItem({
+            label: "Menu Item With an icon",
+            iconClass: "dijitEditorIcon dijitEditorIconCut",
+            onClick: function() {
+                trace('i was clicked');
+            }
+        }));
+        pMenu.addChild(new dijit.CheckedMenuItem({
+            label: "checkable menu item"
+        }));
+        
+        pMenu.addChild(new dijit.MenuSeparator(null,null));
+
+        var pSubMenu = new dijit.Menu(null);
+        pSubMenu.addChild(new dijit.MenuItem({
+            label: "Submenu item"
+        }));
+        pSubMenu.addChild(new dijit.MenuItem({
+            label: "Submenu item"
+        }));
+        pMenu.addChild(new dijit.PopupMenuItem({
+            label: "Submenu",
+            popup: pSubMenu
+        }));
+        
+        pMenu.startup();
+          
       });
   }
 }

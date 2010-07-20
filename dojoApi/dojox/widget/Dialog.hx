@@ -1,14 +1,14 @@
 package dojox.widget;
 
 extern class Dialog extends dijit.Dialog {
-public function new(props:Dynamic,node:Dynamic):Void;
-public var sizeToViewport:Bool;
-public var viewportPadding:Int;
-public var dimensions:Array<Dynamic>;
-public var easing:Dynamic;
-public var sizeDuration:Int;
-public var sizeMethod:String;
-public var showTitle:Bool;
-public var modal:Bool;
+function new(props:Dynamic,node:Dynamic):Void;
+var sizeToViewport:Bool;
+var viewportPadding:Int;
+var dimensions:Array<Dynamic>;
+var easing:Dynamic;
+var sizeDuration:Int;
+var sizeMethod:String;
+var showTitle:Bool;
+var modal:Bool;
 
 }

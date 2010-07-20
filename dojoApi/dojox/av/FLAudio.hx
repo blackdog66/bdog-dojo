@@ -1,27 +1,27 @@
 package dojox.av;
 
 extern class FLAudio {
-public function new(options:Dynamic):Void;
-public function init():Void;
-public function load(options:Dynamic):String;
-public function doPlay(options:Dynamic):Void;
-public function pause(options:Dynamic):Void;
-public function stop(options:Dynamic):Void;
-public function setVolume(options:Dynamic):Void;
-public function setPan(options:Dynamic):Void;
-public function getVolume(options:Dynamic):Void;
-public function getPan(options:Dynamic):Void;
-public function onError(msg:Dynamic):Void;
-public function onLoadStatus(events:Array<Dynamic>):Void;
-public function onAllLoaded():Void;
-public function onPlayStatus(events:Array<Dynamic>):Void;
-public function onLoad():Void;
-public function onID3(evt:Dynamic):Void;
-public function destroy():Void;
-public var id:String;
-public var initialVolume:Float;
-public var initialPan:Float;
-public var isDebug:Bool;
-public var statusInterval:Float;
+function new(options:Dynamic):Void;
+function init():Void;
+function load(options:Dynamic):String;
+function doPlay(options:Dynamic):Void;
+function pause(options:Dynamic):Void;
+function stop(options:Dynamic):Void;
+function setVolume(options:Dynamic):Void;
+function setPan(options:Dynamic):Void;
+function getVolume(options:Dynamic):Void;
+function getPan(options:Dynamic):Void;
+function onError(msg:Dynamic):Void;
+function onLoadStatus(events:Array<Dynamic>):Void;
+function onAllLoaded():Void;
+function onPlayStatus(events:Array<Dynamic>):Void;
+function onLoad():Void;
+function onID3(evt:Dynamic):Void;
+function destroy():Void;
+var id:String;
+var initialVolume:Float;
+var initialPan:Float;
+var isDebug:Bool;
+var statusInterval:Float;
 
 }

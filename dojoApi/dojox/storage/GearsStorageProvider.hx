@@ -1,8 +1,8 @@
 package dojox.storage;
 
 extern class GearsStorageProvider extends dojox.storage.Provider {
-public function new():Void;
-public var TABLE_NAME:String;
-public var initialized:Bool;
+function new():Void;
+var TABLE_NAME:String;
+var initialized:Bool;
 
 }

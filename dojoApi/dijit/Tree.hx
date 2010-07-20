@@ -1,34 +1,38 @@
 package dijit;
 
-extern class Tree {
-public function onDndDrop():Void;
-public function itemCreator():Void;
-public function onDndCancel():Void;
-public function checkAcceptance(source:Dynamic,nodes:Dynamic):Bool;
-public function checkItemAcceptance(target:Dynamic,source:Dynamic,position:String):Bool;
-public function mayHaveChildren(item:Dynamic):Void;
-public function getItemChildren(parentItem:Dynamic,onComplete:Dynamic):Void;
-public function getLabel(item:Dynamic):String;
-public function getIconClass(item:Dynamic,opened:Bool):Void;
-public function getLabelClass(item:Dynamic,opened:Bool):Void;
-public function getIconStyle(item:Dynamic,opened:Bool):Void;
-public function getLabelStyle(item:Dynamic,opened:Bool):Void;
-public function onOpen(item:Dynamic,node:Dynamic):Void;
-public function focusNode(node:Dynamic):Void;
-public var store:Dynamic;
-public var model:Dynamic;
-public var query:Dynamic;
-public var label:String;
-public var showRoot:Bool;
-public var childrenAttr:Array<String>;
-public var openOnClick:Bool;
-public var openOnDblClick:Bool;
-public var templatePath:Dynamic;
-public var persist:Bool;
-public var dndController:String;
-public var dndParams:Array<Dynamic>;
-public var dragThreshold:Int;
-public var betweenThreshold:Int;
-function new(prms:Dynamic,id:String):Void;
+extern class Tree extends dijit._Widget {
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function onDndDrop():Void;
+function itemCreator():Void;
+function onDndCancel():Void;
+function checkAcceptance(source:Dynamic,nodes:Dynamic):Bool;
+function checkItemAcceptance(target:Dynamic,source:Dynamic,position:String):Bool;
+function mayHaveChildren(item:Dynamic):Void;
+function getItemChildren(parentItem:Dynamic,onComplete:Dynamic):Void;
+function getLabel(item:Dynamic):String;
+function getIconClass(item:Dynamic,opened:Bool):Void;
+function getLabelClass(item:Dynamic,opened:Bool):Void;
+function getIconStyle(item:Dynamic,opened:Bool):Void;
+function getLabelStyle(item:Dynamic,opened:Bool):Void;
+function onOpen(item:Dynamic,node:Dynamic):Void;
+function focusNode(node:Dynamic):Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
+var store:Dynamic;
+var model:Dynamic;
+var query:Dynamic;
+var label:String;
+var showRoot:Bool;
+var childrenAttr:Array<String>;
+var openOnClick:Bool;
+var openOnDblClick:Bool;
+var persist:Bool;
+var dndController:String;
+var dndParams:Array<Dynamic>;
+var dragThreshold:Int;
+var betweenThreshold:Int;
+function new(prms:Dynamic,?name:String):Void;
 
 }

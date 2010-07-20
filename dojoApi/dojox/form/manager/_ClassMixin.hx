@@ -1,8 +1,8 @@
 package dojox.form.manager;
 
 extern class _ClassMixin {
-public function gatherClassState(className:String,?names:Dynamic):Dynamic;
-public function addClass(className:String,?names:Dynamic):Dynamic;
-public function removeClass(className:String,?names:Dynamic):Dynamic;
+function gatherClassState(className:String,?names:Dynamic):Dynamic;
+function addClass(className:String,?names:Dynamic):Dynamic;
+function removeClass(className:String,?names:Dynamic):Dynamic;
 
 }

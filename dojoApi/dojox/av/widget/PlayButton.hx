@@ -1,11 +1,15 @@
 package dojox.av.widget;
 
-extern class PlayButton {
-public function setMedia(med:Dynamic):Void;
-public function onPlay():Void;
-public function onPause():Void;
-public function showPlay():Void;
-public function showPause():Void;
-public var templatePath:Dynamic;
+extern class PlayButton extends dijit._Widget {
+function _fillContent(source:Dynamic):Void;
+function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+function setMedia(med:Dynamic):Void;
+function onPlay():Void;
+function onPause():Void;
+function showPlay():Void;
+function showPause():Void;
+var templateString:String;
+var templatePath:String;
+var widgetsInTemplate:Bool;
 
 }
