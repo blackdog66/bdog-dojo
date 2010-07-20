@@ -39,6 +39,9 @@ class App {
     dojo.require("dijit.Dialog");
     dojo.require("dijit.form.Button");
     dojo.require("dijit.Menu");
+    dojo.require("dijit.Editor");
+    dojo.require("dijit._editor.plugins.FontChoice"); 
+    dojo.require("dijit._editor.plugins.TextColor");
     
     dojo.addOnLoad({},function(){
         // create a "hidden" Dialog:
@@ -50,7 +53,7 @@ class App {
            label: "Click me!",
            onClick: function() {
                // Do something:
-               dojo.byId("result1",null).innerHTML += "Thank you! ";
+               dojo.byId("result1").innerHTML += "Thank you! ";
                dialog.show();
                
              }
@@ -94,7 +97,12 @@ class App {
         }));
         
         pMenu.startup();
-          
+
+        new dijit.Editor({
+          height: '200px',
+          extraPlugins: ['dijit._editor.plugins.AlwaysShowToolbar']},
+          dojo.byId('programmatic2'));
+      
       });
   }
 }
