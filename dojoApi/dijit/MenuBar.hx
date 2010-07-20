@@ -1,8 +1,8 @@
 package dijit;
 
 extern class MenuBar extends dijit._MenuBase {
-function _onKeyPress(evt:Dynamic):Void;
-var _isMenuBar:Bool;
-function new(prms:Dynamic,?name:String):Void;
+public function _onKeyPress(evt:Dynamic):Void;
+public var _isMenuBar:Bool;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

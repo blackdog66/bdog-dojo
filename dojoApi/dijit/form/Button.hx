@@ -1,10 +1,10 @@
 package dijit.form;
 
 extern class Button extends dijit.form._FormWidget {
-function setLabel(content:String):Void;
-var label:Dynamic;
-var showLabel:Bool;
-var iconClass:String;
-function new(prms:Dynamic,?name:String):Void;
+public function setLabel(content:String):Void;
+public var label:Dynamic;
+public var showLabel:Bool;
+public var iconClass:String;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

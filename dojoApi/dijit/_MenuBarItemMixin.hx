@@ -1,8 +1,8 @@
 package dijit;
 
 extern class _MenuBarItemMixin {
-var templatePath:Dynamic;
-var attributeMap:Dynamic;
-function new(prms:Dynamic,?name:String):Void;
+public var templatePath:Dynamic;
+public var attributeMap:Dynamic;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

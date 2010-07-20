@@ -1,14 +1,14 @@
 package dijit;
 
 extern class _Container {
-function buildRendering():Void;
-function addChild(widget:Dynamic,?insertIndex:Int):Void;
-function removeChild(widget:Dynamic):Void;
-function getChildren():Dynamic;
-function hasChildren():Bool;
-function destroyDescendants(preserveDom:Bool):Void;
-function getIndexOfChild(child:Dynamic):Int;
-var isContainer:Bool;
-function new(prms:Dynamic,?name:String):Void;
+public function buildRendering():Void;
+public function addChild(widget:Dynamic,?insertIndex:Int):Void;
+public function removeChild(widget:Dynamic):Void;
+public function getChildren():Dynamic;
+public function hasChildren():Bool;
+public function destroyDescendants(preserveDom:Bool):Void;
+public function getIndexOfChild(child:Dynamic):Int;
+public var isContainer:Bool;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

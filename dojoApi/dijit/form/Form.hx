@@ -1,31 +1,31 @@
 package dijit.form;
 
 extern class Form extends dijit._Widget {
-function _fillContent(source:Dynamic):Void;
-function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-function reset():Void;
-function validate():Void;
-function setValues(val:Dynamic):Void;
-function getValues():Void;
-function isValid():Void;
-function onValidStateChange(isValid:Dynamic):Void;
-function connectChildren():Void;
-function execute(formContents:Dynamic):Void;
-function onExecute():Void;
-function onReset(?e:Dynamic):Bool;
-function onSubmit(?e:Dynamic):Bool;
-function submit():Void;
-var templateString:String;
-var templatePath:String;
-var widgetsInTemplate:Bool;
-var name:String;
-var action:String;
-var method:String;
-var encType:String;
-// var accept-charset:String;
-var accept:String;
-var target:String;
-var attributeMap:Dynamic;
-function new(prms:Dynamic,?name:String):Void;
+public function _fillContent(source:Dynamic):Void;
+public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function reset():Void;
+public function validate():Void;
+public function setValues(val:Dynamic):Void;
+public function getValues():Void;
+public function isValid():Void;
+public function onValidStateChange(isValid:Dynamic):Void;
+public function connectChildren():Void;
+public function execute(formContents:Dynamic):Void;
+public function onExecute():Void;
+public function onReset(?e:Dynamic):Bool;
+public function onSubmit(?e:Dynamic):Bool;
+public function submit():Void;
+public var templateString:String;
+public var templatePath:String;
+public var widgetsInTemplate:Bool;
+public var name:String;
+public var action:String;
+public var method:String;
+public var encType:String;
+// public var accept-charset:String;
+public var accept:String;
+public var target:String;
+public var attributeMap:Dynamic;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

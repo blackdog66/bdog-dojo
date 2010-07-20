@@ -1,10 +1,10 @@
 package dijit.form;
 
 extern class _DateTimeTextBox extends dijit.form.RangeBoundTextBox {
-var datePackage:String;
-var compare:Dynamic;
-var popupClass:String;
-var _selector:String;
-function new(prms:Dynamic,?name:String):Void;
+public var datePackage:String;
+public var compare:Dynamic;
+public var popupClass:String;
+public var _selector:String;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

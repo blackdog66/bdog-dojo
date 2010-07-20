@@ -1,11 +1,11 @@
 package dijit;
 
 extern class _DialogMixin {
-function execute(formContents:Dynamic):Void;
-function onCancel():Void;
-function onExecute():Void;
-function _getFocusItems(dialogNode:Dynamic):Void;
-var attributeMap:Dynamic;
-function new(prms:Dynamic,?name:String):Void;
+public function execute(formContents:Dynamic):Void;
+public function onCancel():Void;
+public function onExecute():Void;
+public function _getFocusItems(dialogNode:Dynamic):Void;
+public var attributeMap:Dynamic;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

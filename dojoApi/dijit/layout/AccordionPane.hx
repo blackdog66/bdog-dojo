@@ -1,8 +1,8 @@
 package dijit.layout;
 
 extern class AccordionPane extends dijit.layout.ContentPane {
-function constructor():Void;
-function onSelected():Void;
-function new(prms:Dynamic,?name:String):Void;
+public function constructor():Void;
+public function onSelected():Void;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

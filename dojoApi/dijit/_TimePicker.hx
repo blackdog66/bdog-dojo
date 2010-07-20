@@ -1,24 +1,24 @@
 package dijit;
 
 extern class _TimePicker extends dijit._Widget {
-function _fillContent(source:Dynamic):Void;
-function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-function serialize(val:Date,?options:Dynamic):Void;
-function setValue(value:Date):Void;
-function _setValueAttr(date:Date):Void;
-function onOpen(best:Dynamic):Void;
-function isDisabledDate(dateObject:Date,?locale:String):Bool;
-function onValueSelected(time:Date):Void;
-function handleKey(e:Dynamic):Void;
-var templateString:String;
-var templatePath:String;
-var widgetsInTemplate:Bool;
-var baseClass:String;
-var clickableIncrement:String;
-var visibleIncrement:String;
-var visibleRange:String;
-var value:String;
-var constraints:Dynamic;
-function new(prms:Dynamic,?name:String):Void;
+public function _fillContent(source:Dynamic):Void;
+public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function serialize(val:Date,?options:Dynamic):Void;
+public function setValue(value:Date):Void;
+public function _setValueAttr(date:Date):Void;
+public function onOpen(best:Dynamic):Void;
+public function isDisabledDate(dateObject:Date,?locale:String):Bool;
+public function onValueSelected(time:Date):Void;
+public function handleKey(e:Dynamic):Void;
+public var templateString:String;
+public var templatePath:String;
+public var widgetsInTemplate:Bool;
+public var baseClass:String;
+public var clickableIncrement:String;
+public var visibleIncrement:String;
+public var visibleRange:String;
+public var value:String;
+public var constraints:Dynamic;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

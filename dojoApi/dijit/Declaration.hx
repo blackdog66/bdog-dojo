@@ -1,9 +1,9 @@
 package dijit;
 
 extern class Declaration extends dijit._Widget {
-var widgetClass:String;
-var defaults:Dynamic;
-var mixins:Array<String>;
-function new(prms:Dynamic,?name:String):Void;
+public var widgetClass:String;
+public var defaults:Dynamic;
+public var mixins:Array<String>;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

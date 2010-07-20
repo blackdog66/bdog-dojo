@@ -1,11 +1,11 @@
 package dijit.form;
 
 extern class DropDownButton extends dijit.form.Button {
-function addChild(widget:Dynamic,?insertIndex:Int):Void;
-function removeChild(widget:Dynamic):Void;
-function hasChildren():Bool;
-function getIndexOfChild(child:Dynamic):Int;
-var isContainer:Bool;
-function new(prms:Dynamic,?name:String):Void;
+public function addChild(widget:Dynamic,?insertIndex:Int):Void;
+public function removeChild(widget:Dynamic):Void;
+public function hasChildren():Bool;
+public function getIndexOfChild(child:Dynamic):Int;
+public var isContainer:Bool;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

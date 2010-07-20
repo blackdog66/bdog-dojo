@@ -1,15 +1,15 @@
 package dijit.form;
 
 extern class HorizontalRule extends dijit._Widget {
-function _fillContent(source:Dynamic):Void;
-function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-var templateString:String;
-var templatePath:String;
-var widgetsInTemplate:Bool;
-var count:Int;
-var container:String;
-var ruleStyle:String;
-var _isHorizontal:Bool;
-function new(prms:Dynamic,?name:String):Void;
+public function _fillContent(source:Dynamic):Void;
+public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public var templateString:String;
+public var templatePath:String;
+public var widgetsInTemplate:Bool;
+public var count:Int;
+public var container:String;
+public var ruleStyle:String;
+public var _isHorizontal:Bool;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

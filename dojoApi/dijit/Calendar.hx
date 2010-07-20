@@ -1,25 +1,25 @@
 package dijit;
 
 extern class Calendar extends dijit._Widget {
-function _fillContent(source:Dynamic):Void;
-function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-function setValue(value:Date):Void;
-function _setValueAttr(value:Date):Void;
-function goToToday():Void;
-function constructor(args:Dynamic):Void;
-function _onDayClick(evt:Dynamic):Void;
-function _onDayMouseOver(evt:Dynamic):Void;
-function _onDayMouseOut(evt:Dynamic):Void;
-function onValueSelected(date:Date):Void;
-function onChange(date:Date):Void;
-function isDisabledDate(dateObject:Date,?locale:String):Bool;
-function getClassForDate(dateObject:Date,?locale:String):String;
-var templateString:String;
-var templatePath:String;
-var widgetsInTemplate:Bool;
-var value:Date;
-var datePackage:String;
-var dayWidth:String;
-function new(prms:Dynamic,?name:String):Void;
+public function _fillContent(source:Dynamic):Void;
+public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function setValue(value:Date):Void;
+public function _setValueAttr(value:Date):Void;
+public function goToToday():Void;
+public function constructor(args:Dynamic):Void;
+public function _onDayClick(evt:Dynamic):Void;
+public function _onDayMouseOver(evt:Dynamic):Void;
+public function _onDayMouseOut(evt:Dynamic):Void;
+public function onValueSelected(date:Date):Void;
+public function onChange(date:Date):Void;
+public function isDisabledDate(dateObject:Date,?locale:String):Bool;
+public function getClassForDate(dateObject:Date,?locale:String):String;
+public var templateString:String;
+public var templatePath:String;
+public var widgetsInTemplate:Bool;
+public var value:Date;
+public var datePackage:String;
+public var dayWidth:String;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

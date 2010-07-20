@@ -1,21 +1,21 @@
 package dijit.form;
 
 extern class ValidationTextBox extends dijit.form.TextBox {
-function regExpGen(constraints:Dynamic):String;
-function validator(value:Dynamic,constraints:Dynamic):Void;
-function isValid(isFocused:Bool):Void;
-function getErrorMessage(isFocused:Bool):String;
-function getPromptMessage(isFocused:Bool):String;
-function validate(isFocused:Bool):Void;
-function displayMessage(message:String):Void;
-function constructor():Void;
-var required:Bool;
-var promptMessage:String;
-var invalidMessage:String;
-var constraints:Dynamic;
-var regExp:String;
-var state:String;
-var tooltipPosition:Array<String>;
-function new(prms:Dynamic,?name:String):Void;
+public function regExpGen(constraints:Dynamic):String;
+public function validator(value:Dynamic,constraints:Dynamic):Void;
+public function isValid(isFocused:Bool):Void;
+public function getErrorMessage(isFocused:Bool):String;
+public function getPromptMessage(isFocused:Bool):String;
+public function validate(isFocused:Bool):Void;
+public function displayMessage(message:String):Void;
+public function constructor():Void;
+public var required:Bool;
+public var promptMessage:String;
+public var invalidMessage:String;
+public var constraints:Dynamic;
+public var regExp:String;
+public var state:String;
+public var tooltipPosition:Array<String>;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

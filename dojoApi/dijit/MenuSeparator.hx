@@ -1,15 +1,15 @@
 package dijit;
 
 extern class MenuSeparator extends dijit._Widget {
-function _fillContent(source:Dynamic):Void;
-function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-function getParent():Void;
-function getPreviousSibling():Dynamic;
-function getNextSibling():Dynamic;
-function getIndexInParent():Int;
-var templateString:String;
-var templatePath:String;
-var widgetsInTemplate:Bool;
-function new(prms:Dynamic,?name:String):Void;
+public function _fillContent(source:Dynamic):Void;
+public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function getParent():Void;
+public function getPreviousSibling():Dynamic;
+public function getNextSibling():Dynamic;
+public function getIndexInParent():Int;
+public var templateString:String;
+public var templatePath:String;
+public var widgetsInTemplate:Bool;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

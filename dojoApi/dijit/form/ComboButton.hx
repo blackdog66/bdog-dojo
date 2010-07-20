@@ -1,13 +1,13 @@
 package dijit.form;
 
 extern class ComboButton extends dijit.form.DropDownButton {
-function focusFocalNode(node:Dynamic):Void;
-function hasNextFocalNode():Void;
-function focusNext():Void;
-function hasPrevFocalNode():Void;
-function focusPrev():Void;
-function getFocalNodes():Void;
-var optionsTitle:String;
-function new(prms:Dynamic,?name:String):Void;
+public function focusFocalNode(node:Dynamic):Void;
+public function hasNextFocalNode():Void;
+public function focusNext():Void;
+public function hasPrevFocalNode():Void;
+public function focusPrev():Void;
+public function getFocalNodes():Void;
+public var optionsTitle:String;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

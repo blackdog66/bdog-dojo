@@ -1,11 +1,11 @@
 package dijit;
 
 extern class Tooltip extends dijit._Widget {
-var label:String;
-var showDelay:Int;
-var connectId:Array<String>;
-var position:Array<String>;
-var defaultPosition:Array<Dynamic>;
-function new(prms:Dynamic,?name:String):Void;
+public var label:String;
+public var showDelay:Int;
+public var connectId:Array<String>;
+public var position:Array<String>;
+public var defaultPosition:Array<Dynamic>;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

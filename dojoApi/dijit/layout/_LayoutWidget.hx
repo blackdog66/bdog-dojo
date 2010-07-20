@@ -1,19 +1,19 @@
 package dijit.layout;
 
 extern class _LayoutWidget extends dijit._Widget {
-function addChild(widget:Dynamic,?insertIndex:Int):Void;
-function removeChild(widget:Dynamic):Void;
-function hasChildren():Bool;
-function getIndexOfChild(child:Dynamic):Int;
-function getParent():Void;
-function getPreviousSibling():Dynamic;
-function getNextSibling():Dynamic;
-function getIndexInParent():Int;
-function resize(?changeSize:Dynamic,?resultSize:Dynamic):Void;
-function layout():Void;
-function _setupChild(child:Dynamic):Void;
-var isContainer:Bool;
-var baseClass:String;
-function new(prms:Dynamic,?name:String):Void;
+public function addChild(widget:Dynamic,?insertIndex:Int):Void;
+public function removeChild(widget:Dynamic):Void;
+public function hasChildren():Bool;
+public function getIndexOfChild(child:Dynamic):Int;
+public function getParent():Void;
+public function getPreviousSibling():Dynamic;
+public function getNextSibling():Dynamic;
+public function getIndexInParent():Int;
+public function resize(?changeSize:Dynamic,?resultSize:Dynamic):Void;
+public function layout():Void;
+public function _setupChild(child:Dynamic):Void;
+public var isContainer:Bool;
+public var baseClass:String;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

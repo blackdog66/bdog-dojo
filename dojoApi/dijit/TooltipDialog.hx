@@ -1,26 +1,26 @@
 package dijit;
 
 extern class TooltipDialog extends dijit.layout.ContentPane {
-function _fillContent(source:Dynamic):Void;
-function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-function reset():Void;
-function validate():Void;
-function setValues(val:Dynamic):Void;
-function getValues():Void;
-function isValid():Void;
-function onValidStateChange(isValid:Dynamic):Void;
-function connectChildren():Void;
-function execute(formContents:Dynamic):Void;
-function onCancel():Void;
-function onExecute():Void;
-function _getFocusItems(dialogNode:Dynamic):Void;
-function orient(node:Dynamic,aroundCorner:String,corner:String):Void;
-function onOpen(pos:Dynamic):Void;
-var templateString:String;
-var templatePath:String;
-var widgetsInTemplate:Bool;
-var attributeMap:Dynamic;
-var autofocus:Bool;
-function new(prms:Dynamic,?name:String):Void;
+public function _fillContent(source:Dynamic):Void;
+public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function reset():Void;
+public function validate():Void;
+public function setValues(val:Dynamic):Void;
+public function getValues():Void;
+public function isValid():Void;
+public function onValidStateChange(isValid:Dynamic):Void;
+public function connectChildren():Void;
+public function execute(formContents:Dynamic):Void;
+public function onCancel():Void;
+public function onExecute():Void;
+public function _getFocusItems(dialogNode:Dynamic):Void;
+public function orient(node:Dynamic,aroundCorner:String,corner:String):Void;
+public function onOpen(pos:Dynamic):Void;
+public var templateString:String;
+public var templatePath:String;
+public var widgetsInTemplate:Bool;
+public var attributeMap:Dynamic;
+public var autofocus:Bool;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

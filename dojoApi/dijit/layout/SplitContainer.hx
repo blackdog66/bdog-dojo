@@ -1,16 +1,16 @@
 package dijit.layout;
 
 extern class SplitContainer extends dijit.layout._LayoutWidget {
-function constructor():Void;
-function beginSizing(e:Dynamic,i:Dynamic):Void;
-function changeSizing(e:Dynamic):Void;
-function endSizing(e:Dynamic):Void;
-function movePoint():Void;
-function legaliseSplitPoint(a:Dynamic):Void;
-var activeSizing:Bool;
-var sizerWidth:Int;
-var orientation:String;
-var persist:Bool;
-function new(prms:Dynamic,?name:String):Void;
+public function constructor():Void;
+public function beginSizing(e:Dynamic,i:Dynamic):Void;
+public function changeSizing(e:Dynamic):Void;
+public function endSizing(e:Dynamic):Void;
+public function movePoint():Void;
+public function legaliseSplitPoint(a:Dynamic):Void;
+public var activeSizing:Bool;
+public var sizerWidth:Int;
+public var orientation:String;
+public var persist:Bool;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

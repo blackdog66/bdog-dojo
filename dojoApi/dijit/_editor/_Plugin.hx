@@ -1,19 +1,19 @@
 package dijit._editor;
 
 extern class _Plugin {
-function constructor(?args:Dynamic,?node:Dynamic):Void;
-function _initButton(props:Dynamic):Void;
-function destroy():Void;
-function connect(o:Dynamic,f:Dynamic,tf:Dynamic):Void;
-function updateState():Void;
-function setEditor(editor:Dynamic):Void;
-function setToolbar(toolbar:Dynamic):Void;
-var editor:Dynamic;
-var iconClassPrefix:String;
-var button:Dynamic;
-var command:String;
-var useDefaultCommand:Bool;
-var buttonClass:Dynamic;
-function new(prms:Dynamic,?name:String):Void;
+public function constructor(?args:Dynamic,?node:Dynamic):Void;
+public function _initButton(props:Dynamic):Void;
+public function destroy():Void;
+public function connect(o:Dynamic,f:Dynamic,tf:Dynamic):Void;
+public function updateState():Void;
+public function setEditor(editor:Dynamic):Void;
+public function setToolbar(toolbar:Dynamic):Void;
+public var editor:Dynamic;
+public var iconClassPrefix:String;
+public var button:Dynamic;
+public var command:String;
+public var useDefaultCommand:Bool;
+public var buttonClass:Dynamic;
+public function new(prms:Dynamic,?name:String):Void;
 
 }

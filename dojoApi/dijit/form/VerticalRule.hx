@@ -1,6 +1,6 @@
 package dijit.form;
 
 extern class VerticalRule extends dijit.form.HorizontalRule {
-function new(prms:Dynamic,?name:String):Void;
+public function new(prms:Dynamic,?name:String):Void;
 
 }
