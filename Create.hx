@@ -279,7 +279,7 @@ class All {
       });
     
     if (curNS == "dijit") {
-      fo.writeString("function new(prms:Dynamic,?name:String):Void;\n");
+      fo.writeString("public function new(prms:Dynamic,?name:String):Void;\n");
     }
     
     fo.writeString("\n}\n");
@@ -328,8 +328,8 @@ class All {
         if(uniqueAttr(o,m,METHODS) || constructor) {
           commentIllegalName(m.name);
           
-          //          if (writePub)
-          //  fo.writeString("public ");
+          if (writePub)
+            fo.writeString("public ");
           
           fo.writeString("function ");
 
@@ -449,8 +449,8 @@ class All {
 
           commentIllegalName(p.name);
           
-          //if (writePub)
-          //  fo.writeString("public ");
+          if (writePub)
+            fo.writeString("public ");
           
           fo.writeString("var "+p.name+":"+getType(p.type)+";\n");
         }
