@@ -44,15 +44,58 @@ class Create {
   
   static var keywords = [ "class", "callback"] ;
 
-  static var prop_blacklist = ["regExpGen","serialize","skipForm"];
+  static var namespaces = ["dojo.data",
+                           "dojo.dnd",
+                           "dojo.fx",
+                           "dojo.rpc",
+                           "dijit",
+                           "dijit.form",
+                           "dijit._editor",
+                           "dijit._editor.plugins",
+                           "dijit.layout",
+                           "dijit.tree",
+                           "dojox.charting",
+                           "dojox.charting.widget",
+                           "dojox.data",
+                           "dojox.grid",
+                           "dojox.analytics",
+                           "dojox.atom",
+                           "dojox.av",
+                           "dojox.av.widget",
+                           "dojox.date",
+                           "dojox.dtl",
+                           "dojox.editor",
+                           "dojox.embed",
+                           "dojox.form",
+                           "dojox.form.manager",
+                           "dojox.fx",
+                           "dojox.gfx",
+                           "dojox.grid",
+                           "dojox.image",
+                           "dojox.layout",
+                           "dojox.rpc",
+                           "dojox.sketch",
+                           "dojox.storage",
+                           "dojox.testing",
+                           "dojox.timing",
+                           "dojox.widget",
+                           "dojox.wire",
+                           "dojox.wire.ml",
+                           "dojox.xml",
+                           "dojox.xmpp",
+                           ];
+  
+  // these are props which seem to be repeated in class/subclass so
+  // i've just remove them for now
+  static var prop_blacklist = ["regExpGen","serialize","skipForm","compare"];
  
   static var class_blacklist = [
-                          "dojo.data.util.simpleFetch",
-                          "dijit.form._FormValueWidget",
-                          "dijit.layout._Splitter"
+                          "dojo.data.util.simpleFetch"
                           ];
 
-  // these should be in the provides api but aren't
+  // these should be in the provides api but aren't, so they're added
+  // manaually ...
+  
   static var missingDojo = ["dojo.NodeList","dojo.Deferred"];
   
   static var missingDojoX = [
@@ -73,12 +116,29 @@ class Create {
                              "dijit._Widget",
                              "dijit._MenuBarItemMixin",
                              "dijit.form.ComboBoxMixin",
-                             "dijit.form.NumberTextBoxMixin"
-                            
+                             "dijit.form.NumberTextBoxMixin",
+                             "dijit.layout._Splitter",
+                             "dijit.form._FormValueWidget"
                              ];
 
   static var classLike = ["dojo.Deferred"];
   static var typedefLike = ["dojo.NodeList"];
+
+  static function
+  toProper(s:String):String {
+    return s.charAt(0).toUpperCase() + s.substr(1);
+  }
+  
+  static function
+  getNamespaces() {
+    return Reflect.fields(api).filter(function(ns) {
+      var p = ns.split("."),
+        lastEl = p[p.length-1],
+        firstChar = lastEl.charAt(0);
+      
+      return (firstChar != "_" && firstChar == firstChar.toLowerCase()) ;
+    });
+  }
   
   static function
   keyword(p:String) {
@@ -106,7 +166,8 @@ class Create {
       fo.writeString("// ");
   }
   
-  static function addMissing(n:String) {
+  static function
+  addMissing(n:String) {
     var ns = Reflect.field(api,n),
       provides = Reflect.field(ns,PROVIDES),
       missing = switch(n) {
@@ -118,7 +179,7 @@ class Create {
           missingDijit;
       };
 
-    if (provides != null && missing.length > 0) {
+    if (missing != null && provides != null && missing.length > 0) {
       missing.iter(function(m) {
           provides.push(m);
         });
@@ -136,22 +197,25 @@ class Create {
     Os.mkdir(apiDir);
     
     all = js.io.File.write("All.hx",false);
+    api = JSON.decode(js.io.File.getContent("api.json"));
 
+    //  var names = getNamespaces();
     var names = ["dojo","dijit","dojox"];
-
     names.iter(function(el) {
-        Os.mkdir(to(el));
+        Os.mkdir(to(el.replace(".","/")));
       });
-    
-    var s = js.io.File.getContent("api.json");
-    api = JSON.decode(s);
+
     for (ns in names) {
+      Os.println("-------------------------");
+      Os.println("Processing namespace:"+ns);
       curNS = ns;
       if (ns != "dojox")
         topLevel(ns);
       addMissing(ns);
       nameSpace(Reflect.field(api,ns));
     }
+
+    generateNSfiles() ;
 
     all.writeString("
 class All {
@@ -164,10 +228,10 @@ class All {
   static function
   topLevel(ns:String) {
     var top:Base = Reflect.field(api,ns),
-      name = ns.substr(0,1).toUpperCase() + ns.substr(1);
+      name = toProper(ns);
     fo = js.io.File.write(to(name+".hx"),true);
-    writeTypedefHeader(top,name);
-    writeBody(top,false);
+    writeTypedefHeader(name);
+    writeBody(top,true);
     fo.close();
   }
   
@@ -179,6 +243,18 @@ class All {
   static inline function
   lookup(path):Base {
     return Reflect.field(api,path);
+  }
+
+  static function
+  withFile(path,process:Void->Void) {
+    fo = js.io.File.write(to(path),true);
+    try {
+      process();
+      fo.close();
+    } catch(exc:Dynamic) {
+      trace("exc:withFile:"+exc);
+      fo.close();
+    }
   }
   
   static function
@@ -198,16 +274,20 @@ class All {
               dir = s.slice(0,-1);
 
             Os.mkdir(to(dir.join("/")));
-            fo = js.io.File.write(to(path),true);
-            Os.println("Writing "+actual.location);
-            all.writeString("import "+actual.location + ";\n");
-            fo.writeString("package "+dir.join(".") +";\n\n");
-            if (asTypedef)
-              writeTypedefHeader(actual,className(actual));
-            else
-              writeClassHeader(actual,className(actual));
-            writeBody(actual,true);
-            fo.close();
+            withFile(path,function() {
+                Os.println("Writing "+actual.location);
+                all.writeString("import "+actual.location + ";\n");
+                fo.writeString("package "+dir.join(".") +";\n\n");
+                if (asTypedef)
+                  writeTypedefHeader(className(actual));
+                else
+                  writeClassHeader(actual,className(actual));
+                
+                if (actual.provides != null && actual.provides.length > 1) {
+                  trace("PR:"+className(actual)+" provides "+actual.provides.length);
+                }
+                writeBody(actual,true);
+              });
           }
         } else {
           //trace("missing def : "+p);
@@ -245,7 +325,7 @@ class All {
     var mixins = Reflect.field(obj,"mixins");
     if (mixins == null) return [];
     var instance:Array<{location:String}> = Reflect.field(mixins,"instance");
-    if (instance == null) [];
+    if (instance == null) return [];
     return instance
       .filter(function(el) { return el.location != obj.superclass;})
       .map(function(el) { return el.location; }).array();
@@ -264,7 +344,7 @@ class All {
   */
 
   static function
-  writeTypedefHeader(obj,cn) {
+  writeTypedefHeader(cn) {
     fo.writeString("typedef "+cn+" = {\n");
   }
 
@@ -292,7 +372,6 @@ class All {
 
   static function
   eachProperty(obj:Dynamic,cb:Property->Void) {
-    //var props = getProps(obj);
     var props:Array<Property> = aggregateAttrs(obj,PROPS);
     if (props != null) {
       for (p in props) {
@@ -303,7 +382,6 @@ class All {
 
   static function 
   eachMethod(obj:Dynamic,cb:Method->Void) {
-    //    var mthds:Array<Method> = Reflect.field(obj,METHODS);
     var mthds:Array<Method> = aggregateAttrs(obj,METHODS);
     if (mthds != null) {
       for(m in mthds) {
@@ -316,7 +394,6 @@ class All {
   priv(m:Base) {
     var f = Reflect.field(m,"private");
     if (f) return true;
-    //    if (m.name.startsWith("_")) return true;
     return false;
   }
   
@@ -378,7 +455,8 @@ class All {
     case "float","number": "Float";
     case "string[]" : "Array<String>";
     case "string" : "String";
-    case "object","function" : "Dynamic";
+    case "object": "Dynamic";
+    case "function","string|function":"Dynamic";
     case "boolean","bool": "Bool";
     case "integer","int": "Int";
     case "array" : "Array<Dynamic>";
@@ -456,6 +534,27 @@ class All {
         }
       }
     }
-    
+  }
+
+  static function
+  generateNSfiles() {
+    namespaces.iter(function(ns) {
+        var o:Dynamic = lookup(ns);
+        if (o != null) {
+          var
+            s = ns.split("."),
+            nsName = toProper(s[s.length-1]),
+            f = s.join("/")+ "/"+ nsName +".hx";
+          
+          if (!Os.exists(to(f))) {
+            withFile(f,function() {
+                fo.writeString("package "+ns+" ;\n\n"); 
+                writeTypedefHeader(nsName);
+                writeBody(o,false);
+              });
+          } else
+            trace("namespace file "+f+" already exists");
+        }
+      });
   }
 }
