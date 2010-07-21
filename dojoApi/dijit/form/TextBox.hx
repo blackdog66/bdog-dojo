@@ -1,6 +1,6 @@
 package dijit.form;
 
-extern class TextBox {
+extern class TextBox extends dijit.form._FormValueWidget {
 public function getDisplayedValue():Void;
 public function setDisplayedValue(value:String):Void;
 public function format(value:String,constraints:Dynamic):Void;

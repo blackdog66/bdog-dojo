@@ -1,8 +1,8 @@
 package dojox.wire.ml;
 
 extern class RestHandler {
-function bind(method:Dynamic,parameters:Dynamic,deferred:Dynamic,url:Dynamic):Void;
-var contentType:String;
-var handleAs:String;
+public function bind(method:Dynamic,parameters:Dynamic,deferred:Dynamic,url:Dynamic):Void;
+public var contentType:String;
+public var handleAs:String;
 
 }

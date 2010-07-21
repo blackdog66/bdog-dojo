@@ -1,8 +1,8 @@
 package dojox.charting.action2d;
 
 extern class Tooltip extends dojox.charting.action2d.Base {
-function new(chart:Dynamic,plot:Dynamic,kwArgs:Dynamic):Void;
-function process(o:Dynamic):Void;
-var optionalParams:Dynamic;
+public function new(chart:Dynamic,plot:Dynamic,kwArgs:Dynamic):Void;
+public function process(o:Dynamic):Void;
+public var optionalParams:Dynamic;
 
 }

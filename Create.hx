@@ -163,7 +163,12 @@ class Create {
   static function
   commentIllegalName(name:String) {
     if (name.indexOf("-") != -1 || keyword(name))
-      fo.writeString("// ");
+      write("// ");
+  }
+
+  static inline function
+  write(s:String) {
+    fo.writeString(s);
   }
   
   static function
@@ -247,6 +252,7 @@ class All {
 
   static function
   withFile(path,process:Void->Void) {
+    // !! setting global here
     fo = js.io.File.write(to(path),true);
     try {
       process();
@@ -277,7 +283,7 @@ class All {
             withFile(path,function() {
                 Os.println("Writing "+actual.location);
                 all.writeString("import "+actual.location + ";\n");
-                fo.writeString("package "+dir.join(".") +";\n\n");
+                write("package "+dir.join(".") +";\n\n");
                 if (asTypedef)
                   writeTypedefHeader(className(actual));
                 else
@@ -308,16 +314,16 @@ class All {
   static function
   writeClassHeader(obj:Base,cn) {
     var extended = false;
-    fo.writeString("extern class "+cn);
+    write("extern class "+cn);
     if (obj.superclass != null &&
         ! class_blacklist.exists(function(b) {
             return b == obj.superclass ; })) {
       extended = true;
-      fo.writeString(" extends "+obj.superclass);
+      write(" extends "+obj.superclass);
     }
 
     //writeImplements(obj,cn,extended) ; 
-    fo.writeString(" {\n");
+    write(" {\n");
   }
 
   static function
@@ -337,7 +343,7 @@ class All {
     var sc = obj.superclass;
     for (i in getImplements(obj)) {
       if (i != sc) {
-        fo.writeString(((extended)? "," : "") + " implements "+i);
+        write(((extended)? "," : "") + " implements "+i);
       }
     }
   }
@@ -345,7 +351,7 @@ class All {
 
   static function
   writeTypedefHeader(cn) {
-    fo.writeString("typedef "+cn+" = {\n");
+    write("typedef "+cn+" = {\n");
   }
 
   static function
@@ -359,10 +365,10 @@ class All {
       });
     
     if (curNS == "dijit") {
-      fo.writeString("public function new(prms:Dynamic,?name:String):Void;\n");
+      write("public function new(prms:Dynamic,?name:String):Void;\n");
     }
     
-    fo.writeString("\n}\n");
+    write("\n}\n");
   }
 
   static function
@@ -406,22 +412,22 @@ class All {
           commentIllegalName(m.name);
           
           if (writePub)
-            fo.writeString("public ");
+            write("public ");
           
-          fo.writeString("function ");
+          write("function ");
 
           if (constructor)
-            fo.writeString("new(");
+            write("new(");
           else
-            fo.writeString(m.name + "(");
+            write(m.name + "(");
         
           genParam(m.parameters);
           
           var ret:Array<{type:String}> = Reflect.field(m,"return-types");
           if (ret == null || constructor)
-            fo.writeString("):Void;\n");
+            write("):Void;\n");
           else
-            fo.writeString("):"+getType(ret[0].type)+";\n");
+            write("):"+getType(ret[0].type)+";\n");
         }
       }
     }
@@ -440,7 +446,7 @@ class All {
           a.push(opt+p.name + ":"+getType(p.type));
       }
       var s = a.join(",");
-      fo.writeString(s);
+      write(s);
     }
   }
 
@@ -528,9 +534,9 @@ class All {
           commentIllegalName(p.name);
           
           if (writePub)
-            fo.writeString("public ");
+            write("public ");
           
-          fo.writeString("var "+p.name+":"+getType(p.type)+";\n");
+          write("var "+p.name+":"+getType(p.type)+";\n");
         }
       }
     }
@@ -546,15 +552,17 @@ class All {
             nsName = toProper(s[s.length-1]),
             f = s.join("/")+ "/"+ nsName +".hx";
           
-          if (!Os.exists(to(f))) {
-            withFile(f,function() {
-                fo.writeString("package "+ns+" ;\n\n"); 
-                writeTypedefHeader(nsName);
-                writeBody(o,false);
-              });
-          } else
-            trace("namespace file "+f+" already exists");
-        }
+          if (Os.exists(to(f))) {
+            nsName = "N" + nsName;
+            f = s.join("/")+ "/"+ nsName +".hx";
+          }
+
+          withFile(f,function() {
+              write("package "+ns+" ;\n\n"); 
+              writeTypedefHeader(nsName);
+              writeBody(o,false);
+            });
+          }
       });
   }
 }

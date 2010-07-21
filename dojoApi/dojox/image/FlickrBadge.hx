@@ -1,12 +1,12 @@
 package dojox.image;
 
 extern class FlickrBadge extends dojox.image.Badge {
-var userid:String;
-var username:String;
-var setid:String;
-var tags:String;
-var searchText:String;
-var target:String;
-var apikey:String;
+public var userid:String;
+public var username:String;
+public var setid:String;
+public var tags:String;
+public var searchText:String;
+public var target:String;
+public var apikey:String;
 
 }

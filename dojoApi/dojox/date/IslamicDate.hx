@@ -1,29 +1,29 @@
 package dojox.date;
 
 extern class IslamicDate {
-function new():Void;
-function getDate():Void;
-function getMonth():Void;
-function getFullYear():Void;
-function getDay():Void;
-function getHours():Void;
-function getMinutes():Void;
-function getSeconds():Void;
-function getMilliseconds():Void;
-function setDate(date:Float):Void;
-function setYear(year:Float):Void;
-function setMonth(month:Float):Void;
-function setHours():Void;
-function setMinutes(minutes:Float):Void;
-function setSeconds(seconds:Float):Void;
-function setMilliseconds(milliseconds:Float):Void;
-function toString():Void;
-function toGregorian():Void;
-function fromGregorian(gdate:Date):Void;
-function parse(dateObject:String):Void;
-function valueOf():Void;
-function getDaysInIslamicMonth(month:Float,year:Float):Dynamic;
-var weekDays:Dynamic;
-var months:Dynamic;
+public function new():Void;
+public function getDate():Void;
+public function getMonth():Void;
+public function getFullYear():Void;
+public function getDay():Void;
+public function getHours():Void;
+public function getMinutes():Void;
+public function getSeconds():Void;
+public function getMilliseconds():Void;
+public function setDate(date:Float):Void;
+public function setYear(year:Float):Void;
+public function setMonth(month:Float):Void;
+public function setHours():Void;
+public function setMinutes(minutes:Float):Void;
+public function setSeconds(seconds:Float):Void;
+public function setMilliseconds(milliseconds:Float):Void;
+public function toString():Void;
+public function toGregorian():Void;
+public function fromGregorian(gdate:Date):Void;
+public function parse(dateObject:String):Void;
+public function valueOf():Void;
+public function getDaysInIslamicMonth(month:Float,year:Float):Dynamic;
+public var weekDays:Dynamic;
+public var months:Dynamic;
 
 }

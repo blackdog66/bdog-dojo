@@ -1,25 +1,25 @@
 package dojox.cometd;
 
 extern class RestChannels {
-function new(options:Dynamic):Void;
-function absoluteUrl(baseUrl:Dynamic,relativeUrl:Dynamic):Void;
-function open():Dynamic;
-function subscribe(channel:String,?args:Dynamic):Dynamic;
-function publish(channel:Dynamic,data:Dynamic):Void;
-function onprogress(xhr:Dynamic,data:Dynamic,contentType:Dynamic):Void;
-function get(channel:String,?args:Dynamic):Void;
-function receive(message:Dynamic):Void;
-function disconnected():Void;
-function unsubscribe(channel:String,?args:Dynamic):Void;
-function disconnect():Void;
-var acceptType:String;
-var subscriptions:Dynamic;
-var subCallbacks:Dynamic;
-var autoReconnectTime:Float;
-var reloadDataOnReconnect:Bool;
-var sendAsJson:Bool;
-var url:String;
-var autoSubscribeRoot:String;
-var defaultInstance:Dynamic;
+public function new(options:Dynamic):Void;
+public function absoluteUrl(baseUrl:Dynamic,relativeUrl:Dynamic):Void;
+public function open():Dynamic;
+public function subscribe(channel:String,?args:Dynamic):Dynamic;
+public function publish(channel:Dynamic,data:Dynamic):Void;
+public function onprogress(xhr:Dynamic,data:Dynamic,contentType:Dynamic):Void;
+public function get(channel:String,?args:Dynamic):Void;
+public function receive(message:Dynamic):Void;
+public function disconnected():Void;
+public function unsubscribe(channel:String,?args:Dynamic):Void;
+public function disconnect():Void;
+public var acceptType:String;
+public var subscriptions:Dynamic;
+public var subCallbacks:Dynamic;
+public var autoReconnectTime:Float;
+public var reloadDataOnReconnect:Bool;
+public var sendAsJson:Bool;
+public var url:String;
+public var autoSubscribeRoot:String;
+public var defaultInstance:Dynamic;
 
 }

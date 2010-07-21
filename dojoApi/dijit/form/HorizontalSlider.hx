@@ -1,6 +1,6 @@
 package dijit.form;
 
-extern class HorizontalSlider {
+extern class HorizontalSlider extends dijit.form._FormValueWidget {
 public function addChild(widget:Dynamic,?insertIndex:Int):Void;
 public function removeChild(widget:Dynamic):Void;
 public function hasChildren():Bool;

@@ -1,21 +1,21 @@
 package dojox.widget;
 
 extern class Toaster extends dijit._Widget {
-function _fillContent(source:Dynamic):Void;
-function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-function setContent(message:Dynamic,messageType:String,?duration:Int):Void;
-function onSelect(e:Dynamic):Void;
-function show():Void;
-function hide():Void;
-var templateString:String;
-var templatePath:String;
-var widgetsInTemplate:Bool;
-var messageTopic:String;
-var defaultType:String;
-var positionDirection:String;
-var positionDirectionTypes:Array<Dynamic>;
-var duration:Int;
-var slideDuration:Int;
-var separator:String;
+public function _fillContent(source:Dynamic):Void;
+public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function setContent(message:Dynamic,messageType:String,?duration:Int):Void;
+public function onSelect(e:Dynamic):Void;
+public function show():Void;
+public function hide():Void;
+public var templateString:String;
+public var templatePath:String;
+public var widgetsInTemplate:Bool;
+public var messageTopic:String;
+public var defaultType:String;
+public var positionDirection:String;
+public var positionDirectionTypes:Array<Dynamic>;
+public var duration:Int;
+public var slideDuration:Int;
+public var separator:String;
 
 }

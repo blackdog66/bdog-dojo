@@ -1,8 +1,8 @@
 package dojox.storage;
 
 extern class AirDBStorageProvider extends dojox.storage.Provider {
-var DATABASE_FILE:String;
-var TABLE_NAME:String;
-var initialized:Bool;
+public var DATABASE_FILE:String;
+public var TABLE_NAME:String;
+public var initialized:Bool;
 
 }

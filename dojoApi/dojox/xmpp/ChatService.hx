@@ -1,15 +1,15 @@
 package dojox.xmpp;
 
 extern class ChatService {
-function new():Void;
-function recieveMessage(msg:Dynamic,initial:Dynamic):Void;
-function setSession(session:Dynamic):Void;
-function setState(state:Dynamic):Void;
-function invite(contact:Dynamic):Void;
-function sendMessage(msg:Dynamic):Void;
-function sendChatState(state:Dynamic):Void;
-function onNewMessage(msg:Dynamic):Void;
-function onInvite(contact:Dynamic):Void;
-var state:String;
+public function new():Void;
+public function recieveMessage(msg:Dynamic,initial:Dynamic):Void;
+public function setSession(session:Dynamic):Void;
+public function setState(state:Dynamic):Void;
+public function invite(contact:Dynamic):Void;
+public function sendMessage(msg:Dynamic):Void;
+public function sendChatState(state:Dynamic):Void;
+public function onNewMessage(msg:Dynamic):Void;
+public function onInvite(contact:Dynamic):Void;
+public var state:String;
 
 }

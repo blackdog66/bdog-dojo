@@ -1,6 +1,6 @@
 package dojox.widget;
 
 extern class _CalendarMonthYear {
-function new():Void;
+public function new():Void;
 
 }

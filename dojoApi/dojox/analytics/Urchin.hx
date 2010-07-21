@@ -1,9 +1,9 @@
 package dojox.analytics;
 
 extern class Urchin {
-function new(args:Dynamic):Void;
-function GAonLoad():Void;
-function trackPageView(url:String):Void;
-var acct:String;
+public function new(args:Dynamic):Void;
+public function GAonLoad():Void;
+public function trackPageView(url:String):Void;
+public var acct:String;
 
 }

@@ -1,16 +1,16 @@
 package dojox.gfx;
 
 extern class Moveable {
-function new(shape:Dynamic,params:Dynamic):Void;
-function destroy():Void;
-function onMouseDown(e:Dynamic):Void;
-function onMouseMove(e:Dynamic):Void;
-function onMouseUp(e:Dynamic):Void;
-function onMoveStart(mover:Dynamic):Void;
-function onMoveStop(mover:Dynamic):Void;
-function onFirstMove(mover:Dynamic):Void;
-function onMove(mover:Dynamic,shift:Dynamic):Void;
-function onMoving(mover:Dynamic,shift:Dynamic):Void;
-function onMoved(mover:Dynamic,shift:Dynamic):Void;
+public function new(shape:Dynamic,params:Dynamic):Void;
+public function destroy():Void;
+public function onMouseDown(e:Dynamic):Void;
+public function onMouseMove(e:Dynamic):Void;
+public function onMouseUp(e:Dynamic):Void;
+public function onMoveStart(mover:Dynamic):Void;
+public function onMoveStop(mover:Dynamic):Void;
+public function onFirstMove(mover:Dynamic):Void;
+public function onMove(mover:Dynamic,shift:Dynamic):Void;
+public function onMoving(mover:Dynamic,shift:Dynamic):Void;
+public function onMoved(mover:Dynamic,shift:Dynamic):Void;
 
 }

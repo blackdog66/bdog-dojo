@@ -1,6 +1,6 @@
 package dojox.xml;
 
 extern class Script {
-function new(props:Dynamic,node:Dynamic):Void;
+public function new(props:Dynamic,node:Dynamic):Void;
 
 }

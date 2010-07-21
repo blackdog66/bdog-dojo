@@ -1,7 +1,7 @@
 package dojox.data;
 
 extern class JsonQueryRestStore extends dojox.data.JsonRestStore {
-var useFullIdInQueries:Bool;
-var jsonQueryPagination:Bool;
+public var useFullIdInQueries:Bool;
+public var jsonQueryPagination:Bool;
 
 }

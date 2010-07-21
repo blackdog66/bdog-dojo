@@ -1,19 +1,19 @@
 package dojox.widget;
 
 extern class Iterator extends dijit.Declaration {
-function clear():Void;
-function update():Void;
-function getAttrValuesObj(item:Dynamic):Void;
-function onDataAvailable(data:Dynamic):Void;
-function fetch(query:Dynamic,start:Dynamic,end:Dynamic):Void;
-var constructor:Dynamic;
-var start:Float;
-var fetchMax:Float;
-var attrs:Array<Dynamic>;
-var defaultValue:String;
-var widgetCtor:Dynamic;
-var dataValues:Array<Dynamic>;
-var data:Dynamic;
-var store:Dynamic;
+public function clear():Void;
+public function update():Void;
+public function getAttrValuesObj(item:Dynamic):Void;
+public function onDataAvailable(data:Dynamic):Void;
+public function fetch(query:Dynamic,start:Dynamic,end:Dynamic):Void;
+public var constructor:Dynamic;
+public var start:Float;
+public var fetchMax:Float;
+public var attrs:Array<Dynamic>;
+public var defaultValue:String;
+public var widgetCtor:Dynamic;
+public var dataValues:Array<Dynamic>;
+public var data:Dynamic;
+public var store:Dynamic;
 
 }

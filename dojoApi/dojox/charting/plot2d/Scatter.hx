@@ -1,6 +1,6 @@
 package dojox.charting.plot2d;
 
 extern class Scatter extends dojox.charting.plot2d.Default {
-function new():Void;
+public function new():Void;
 
 }

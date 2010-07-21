@@ -1,8 +1,8 @@
 package dojox.form;
 
 extern class Rating extends dijit.form._FormWidget {
-function new(params:Dynamic):Void;
-function onStarClick(evt:Dynamic):Void;
-var numStars:Dynamic;
+public function new(params:Dynamic):Void;
+public function onStarClick(evt:Dynamic):Void;
+public var numStars:Dynamic;
 
 }

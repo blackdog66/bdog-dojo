@@ -1,14 +1,14 @@
 package dojox.wire.ml;
 
 extern class Action extends dijit._Widget {
-function addChild(widget:Dynamic,?insertIndex:Int):Void;
-function removeChild(widget:Dynamic):Void;
-function hasChildren():Bool;
-function getIndexOfChild(child:Dynamic):Int;
-function run():Void;
-var isContainer:Bool;
-var trigger:Dynamic;
-var triggerEvent:Dynamic;
-var triggerTopic:Dynamic;
+public function addChild(widget:Dynamic,?insertIndex:Int):Void;
+public function removeChild(widget:Dynamic):Void;
+public function hasChildren():Bool;
+public function getIndexOfChild(child:Dynamic):Int;
+public function run():Void;
+public var isContainer:Bool;
+public var trigger:Dynamic;
+public var triggerEvent:Dynamic;
+public var triggerTopic:Dynamic;
 
 }

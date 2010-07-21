@@ -1,7 +1,7 @@
 package dojox.storage;
 
 extern class WhatWGStorageProvider extends dojox.storage.Provider {
-function getFullKey(key:Dynamic,namespace:Dynamic):Void;
-var initialized:Bool;
+public function getFullKey(key:Dynamic,namespace:Dynamic):Void;
+public var initialized:Bool;
 
 }

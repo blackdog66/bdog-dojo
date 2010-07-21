@@ -1,9 +1,9 @@
 package dojox.timing;
 
 extern class Sequence {
-function new():Void;
-function go(defs:Array<Dynamic>,?doneFunction:Dynamic):Void;
-function goOn():Void;
-function stop():Void;
+public function new():Void;
+public function go(defs:Array<Dynamic>,?doneFunction:Dynamic):Void;
+public function goOn():Void;
+public function stop():Void;
 
 }

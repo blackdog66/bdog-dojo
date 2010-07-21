@@ -1,11 +1,11 @@
 package dojox.form;
 
 extern class DropDownStack extends dojox.form.DropDownSelect {
-function onAddChild(pane:Dynamic,?insertIndex:Int):Void;
-function onRemoveChild(pane:Dynamic):Void;
-function onSelectChild(pane:Dynamic):Void;
-function onStartup(info:Dynamic):Void;
-var stackId:String;
-var stackPrefix:String;
+public function onAddChild(pane:Dynamic,?insertIndex:Int):Void;
+public function onRemoveChild(pane:Dynamic):Void;
+public function onSelectChild(pane:Dynamic):Void;
+public function onStartup(info:Dynamic):Void;
+public var stackId:String;
+public var stackPrefix:String;
 
 }

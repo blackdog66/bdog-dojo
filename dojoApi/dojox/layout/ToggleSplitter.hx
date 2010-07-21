@@ -1,9 +1,9 @@
 package dojox.layout;
 
-extern class ToggleSplitter {
-function onOpen():Void;
-var open:Bool;
-var closedThreshold:Int;
-var openSize:String;
+extern class ToggleSplitter extends dijit.layout._Splitter {
+public function onOpen():Void;
+public var open:Bool;
+public var closedThreshold:Int;
+public var openSize:String;
 
 }

@@ -1,6 +1,6 @@
 package dojox.data;
 
 extern class CouchDBRestStore extends dojox.data.JsonRestStore {
-function getStores(couchServerUrl:Dynamic):Void;
+public function getStores(couchServerUrl:Dynamic):Void;
 
 }

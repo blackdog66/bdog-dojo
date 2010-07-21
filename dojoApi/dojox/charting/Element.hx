@@ -1,11 +1,11 @@
 package dojox.charting;
 
 extern class Element {
-function new(chart:Dynamic):Void;
-function createGroup(creator:Dynamic):Void;
-function purgeGroup():Void;
-function cleanGroup(creator:Dynamic):Void;
-function destroyHtmlElements():Void;
-function destroy():Void;
+public function new(chart:Dynamic):Void;
+public function createGroup(creator:Dynamic):Void;
+public function purgeGroup():Void;
+public function cleanGroup(creator:Dynamic):Void;
+public function destroyHtmlElements():Void;
+public function destroy():Void;
 
 }

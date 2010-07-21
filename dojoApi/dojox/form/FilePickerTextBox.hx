@@ -1,19 +1,19 @@
 package dojox.form;
 
 extern class FilePickerTextBox extends dijit.form.ValidationTextBox {
-function isLoaded():Void;
-function loadDropDown(loadCallback:Dynamic):Void;
-function toggleDropDown():Void;
-function openDropDown():Void;
-function closeDropDown(focus:Bool):Void;
-var dropDownNode:Dynamic;
-var popupStateNode:Dynamic;
-var aroundNode:Dynamic;
-var dropDown:Dynamic;
-var autoWidth:Bool;
-var maxHeight:Int;
-var searchDelay:Int;
-var valueItem:Dynamic;
-var numPanes:Float;
+public function isLoaded():Void;
+public function loadDropDown(loadCallback:Dynamic):Void;
+public function toggleDropDown():Void;
+public function openDropDown():Void;
+public function closeDropDown(focus:Bool):Void;
+public var dropDownNode:Dynamic;
+public var popupStateNode:Dynamic;
+public var aroundNode:Dynamic;
+public var dropDown:Dynamic;
+public var autoWidth:Bool;
+public var maxHeight:Int;
+public var searchDelay:Int;
+public var valueItem:Dynamic;
+public var numPanes:Float;
 
 }

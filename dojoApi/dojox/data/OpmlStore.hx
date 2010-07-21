@@ -1,23 +1,23 @@
 package dojox.data;
 
 extern class OpmlStore {
-function new(keywordParameters:Dynamic):Void;
-function getValue(item:Dynamic,attribute:Dynamic,?defaultValue:Dynamic):Dynamic;
-function getValues(item:Dynamic,attribute:Dynamic):Array<Dynamic>;
-function getAttributes(item:Dynamic):Array<Dynamic>;
-function hasAttribute(item:Dynamic,attribute:Dynamic):Bool;
-function containsValue(item:Dynamic,attribute:Dynamic,value:Dynamic):Bool;
-function isItem(something:Dynamic):Void;
-function isItemLoaded(something:Dynamic):Bool;
-function loadItem(item:Dynamic):Void;
-function getLabel(item:Dynamic):String;
-function getLabelAttributes(item:Dynamic):Array<Dynamic>;
-function getFeatures():Dynamic;
-function getIdentity(item:Dynamic):Dynamic;
-function fetchItemByIdentity(keywordArgs:Dynamic):Void;
-function getIdentityAttributes(item:Dynamic):Void;
-function close(request:Dynamic):Void;
-var label:String;
-var url:String;
+public function new(keywordParameters:Dynamic):Void;
+public function getValue(item:Dynamic,attribute:Dynamic,?defaultValue:Dynamic):Dynamic;
+public function getValues(item:Dynamic,attribute:Dynamic):Array<Dynamic>;
+public function getAttributes(item:Dynamic):Array<Dynamic>;
+public function hasAttribute(item:Dynamic,attribute:Dynamic):Bool;
+public function containsValue(item:Dynamic,attribute:Dynamic,value:Dynamic):Bool;
+public function isItem(something:Dynamic):Void;
+public function isItemLoaded(something:Dynamic):Bool;
+public function loadItem(item:Dynamic):Void;
+public function getLabel(item:Dynamic):String;
+public function getLabelAttributes(item:Dynamic):Array<Dynamic>;
+public function getFeatures():Dynamic;
+public function getIdentity(item:Dynamic):Dynamic;
+public function fetchItemByIdentity(keywordArgs:Dynamic):Void;
+public function getIdentityAttributes(item:Dynamic):Void;
+public function close(request:Dynamic):Void;
+public var label:String;
+public var url:String;
 
 }

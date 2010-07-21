@@ -1,11 +1,11 @@
 package dojox.sketch;
 
 extern class UndoStack {
-function new(figure:Dynamic):Void;
-function apply(state:Dynamic,from:Dynamic,to:Dynamic):Void;
-function add(cmd:String,?ann:Dynamic,?before:String):Void;
-function destroy():Void;
-function undo():Void;
-function redo():Void;
+public function new(figure:Dynamic):Void;
+public function apply(state:Dynamic,from:Dynamic,to:Dynamic):Void;
+public function add(cmd:String,?ann:Dynamic,?before:String):Void;
+public function destroy():Void;
+public function undo():Void;
+public function redo():Void;
 
 }

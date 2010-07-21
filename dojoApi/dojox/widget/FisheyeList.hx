@@ -1,30 +1,30 @@
 package dojox.widget;
 
 extern class FisheyeList extends dijit._Widget {
-function _fillContent(source:Dynamic):Void;
-function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
-function addChild(widget:Dynamic,?insertIndex:Int):Void;
-function removeChild(widget:Dynamic):Void;
-function hasChildren():Bool;
-function getIndexOfChild(child:Dynamic):Int;
-function new():Void;
-function onResized():Void;
-var templateString:String;
-var templatePath:String;
-var widgetsInTemplate:Bool;
-var isContainer:Bool;
-var snarfChildDomOutput:Bool;
-var itemWidth:Int;
-var itemHeight:Int;
-var itemMaxWidth:Int;
-var itemMaxHeight:Int;
-var imgNode:Dynamic;
-var orientation:String;
-var isFixed:Bool;
-var conservativeTrigger:Bool;
-var effectUnits:Float;
-var itemPadding:Int;
-var attachEdge:String;
-var labelEdge:String;
+public function _fillContent(source:Dynamic):Void;
+public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function addChild(widget:Dynamic,?insertIndex:Int):Void;
+public function removeChild(widget:Dynamic):Void;
+public function hasChildren():Bool;
+public function getIndexOfChild(child:Dynamic):Int;
+public function new():Void;
+public function onResized():Void;
+public var templateString:String;
+public var templatePath:String;
+public var widgetsInTemplate:Bool;
+public var isContainer:Bool;
+public var snarfChildDomOutput:Bool;
+public var itemWidth:Int;
+public var itemHeight:Int;
+public var itemMaxWidth:Int;
+public var itemMaxHeight:Int;
+public var imgNode:Dynamic;
+public var orientation:String;
+public var isFixed:Bool;
+public var conservativeTrigger:Bool;
+public var effectUnits:Float;
+public var itemPadding:Int;
+public var attachEdge:String;
+public var labelEdge:String;
 
 }

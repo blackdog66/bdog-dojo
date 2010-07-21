@@ -1,6 +1,6 @@
 package dojox.charting.plot2d;
 
 extern class Markers extends dojox.charting.plot2d.Default {
-function new():Void;
+public function new():Void;
 
 }
