@@ -1,7 +1,7 @@
 package dojox.form;
 
 extern class MultiComboBox extends dijit.form.ValidationTextBox {
-public function new():Void;
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public function doHighlight(label:String,find:String):Dynamic;
 public var item:Dynamic;
 public var pageSize:Int;
@@ -17,6 +17,8 @@ public var labelType:String;
 public var queryExpr:String;
 public var ignoreCase:Bool;
 public var hasDownArrow:Bool;
+public var searchTimer:Dynamic;
+public var comboNode:Dynamic;
 public var delimiter:String;
 
 }

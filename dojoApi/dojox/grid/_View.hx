@@ -1,8 +1,9 @@
 package dojox.grid;
 
 extern class _View extends dijit._Widget {
+public function new():Void;
 public function _fillContent(source:Dynamic):Void;
-public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function getCachedTemplate(templatePath:Dynamic,?templateString:String,alwaysUseString:Dynamic):String;
 public function focus():Void;
 public function setStructure(inStructure:Dynamic):Void;
 public function onBeforeRow(inRowIndex:Dynamic,cells:Dynamic):Void;
@@ -47,12 +48,26 @@ public function update():Void;
 public var templateString:String;
 public var templatePath:String;
 public var widgetsInTemplate:Bool;
+public var declaredClass:Dynamic;
 public var defaultWidth:String;
 public var viewWidth:String;
 public var themeable:Bool;
 public var classTag:String;
 public var marginBottom:Float;
 public var rowPad:Float;
+public var rowNodes:Dynamic;
+public var content:Dynamic;
+public var header:Dynamic;
+public var structure:Dynamic;
+public var noscroll:Dynamic;
+public var simpleStructure:Dynamic;
+public var flexCells:Dynamic;
+public var bottomMarker:Dynamic;
+public var topMarker:Dynamic;
+public var arrowDim:Dynamic;
+public var index:Dynamic;
+public var contentWidth:Dynamic;
+public var contentNode:Dynamic;
 public var lastTop:Float;
 public var firstScroll:Float;
 

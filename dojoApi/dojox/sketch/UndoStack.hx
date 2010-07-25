@@ -7,5 +7,6 @@ public function add(cmd:String,?ann:Dynamic,?before:String):Void;
 public function destroy():Void;
 public function undo():Void;
 public function redo():Void;
+public var figure:Dynamic;
 
 }

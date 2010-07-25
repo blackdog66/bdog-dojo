@@ -6,6 +6,6 @@ public function onCancel():Void;
 public function onExecute():Void;
 public function _getFocusItems(dialogNode:Dynamic):Void;
 public var attributeMap:Dynamic;
-public function new(prms:Dynamic,?name:String):Void;
+public function new(prms:Dynamic,?name:Dynamic):Void;
 
 }

@@ -18,7 +18,7 @@ public var itemGroup:String;
 public var button:Dynamic;
 public var queryCommand:Dynamic;
 public var shape:String;
-public var useDefaultCommand:Bool;
+public var useDefaultCommand:Dynamic;
 public var buttonClass:Dynamic;
 
 }

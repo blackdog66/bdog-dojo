@@ -28,8 +28,8 @@ public function clickSelect(inIndex:Dynamic,inCtrlKey:Dynamic,inShiftKey:Dynamic
 public function clickSelectEvent(e:Dynamic):Void;
 public function clear():Void;
 public var mode:String;
-public var selected:Dynamic;
 public var updating:Float;
 public var selectedIndex:Float;
+public var grid:Dynamic;
 
 }

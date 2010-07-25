@@ -1,6 +1,7 @@
 package dojox.charting.widget;
 
 extern class Sparkline extends dojox.charting.widget.Chart2D {
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public var type:String;
 public var valueFn:String;
 public var store:String;

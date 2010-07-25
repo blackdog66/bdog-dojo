@@ -1,6 +1,7 @@
 package dijit.form;
 
 extern class HorizontalSlider extends dijit.form._FormValueWidget {
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public function addChild(widget:Dynamic,?insertIndex:Int):Void;
 public function removeChild(widget:Dynamic):Void;
 public function hasChildren():Bool;
@@ -14,6 +15,5 @@ public var discreteValues:Int;
 public var pageIncrement:Int;
 public var clickSelect:Bool;
 public var slideDuration:Float;
-public function new(prms:Dynamic,?name:String):Void;
 
 }

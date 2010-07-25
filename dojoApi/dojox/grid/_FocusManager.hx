@@ -25,9 +25,10 @@ public function focusGridView():Void;
 public function focusGrid(inSkipFocusCell:Dynamic):Void;
 public function findAndFocusGridCell():Void;
 public function focusHeader():Void;
+public function blurHeader():Void;
 public function doFocus(e:Dynamic):Void;
 public function doBlur(e:Dynamic):Void;
-public function doBlurHeader(e:Dynamic):Void;
+public function doContextMenu(e:Dynamic):Void;
 public function doLastNodeFocus(e:Dynamic):Void;
 public function doLastNodeBlur(e:Dynamic):Void;
 public function doColHeaderFocus(e:Dynamic):Void;
@@ -35,5 +36,7 @@ public function doColHeaderBlur(e:Dynamic):Void;
 public var tabbingOut:Bool;
 public var focusClass:String;
 public var focusView:Dynamic;
+public var rowIndex:Float;
+public var headerMenu:Dynamic;
 
 }

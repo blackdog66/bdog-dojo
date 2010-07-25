@@ -10,6 +10,7 @@ public function setLabel(content:String,timeout:Int):Void;
 public var isBusy:Bool;
 public var busyLabel:String;
 public var timeout:Dynamic;
-public var useIcon:Bool;
+public var useIcon:Dynamic;
+public var label:Dynamic;
 
 }

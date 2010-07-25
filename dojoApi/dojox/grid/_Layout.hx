@@ -10,7 +10,9 @@ public function addRowsDef(inDef:Dynamic):Void;
 public function addViewDef(inDef:Dynamic):Void;
 public function setStructure(inStructure:Dynamic):Void;
 public var cells:Array<Dynamic>;
-public var structure:Dynamic;
+public var structure:Array<Dynamic>;
 public var defaultWidth:String;
+public var fieldIndex:Float;
+public var cellCount:Dynamic;
 
 }

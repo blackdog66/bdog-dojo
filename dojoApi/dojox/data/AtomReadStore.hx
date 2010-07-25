@@ -17,8 +17,10 @@ public function getFeedValue(attribute:Dynamic,defaultValue:Dynamic):Void;
 public function getFeedValues(attribute:Dynamic,defaultValue:Dynamic):Void;
 public function close(request:Dynamic):Void;
 public var url:Dynamic;
-public var label:String;
+public var label:Dynamic;
 public var sendQuery:Dynamic;
 public var unescapeHTML:Dynamic;
+public var urlPreventCache:Bool;
+public var rewriteUrl:Dynamic;
 
 }

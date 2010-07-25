@@ -10,5 +10,20 @@ public function deleteDashedZone():Void;
 public function insertDashedZone(before:Bool):Void;
 public var GC_OFFSET_X:Dynamic;
 public var GC_OFFSET_Y:Dynamic;
+public var firstIndicator:Bool;
+public var dndNodes:Dynamic;
+public var containerSource:Bool;
+public var dropObject:Dynamic;
+public var dom:Dynamic;
+public var autoScrollActive:Bool;
+public var childBoxes:Dynamic;
+public var dropIndicator:Dynamic;
+public var handleClasses:Dynamic;
+public var opacity:Dynamic;
+public var allowAutoScroll:Dynamic;
+public var defaultHandleClass:String;
+public var isDropped:Bool;
+public var isOffset:Dynamic;
+public var hideSource:Dynamic;
 
 }

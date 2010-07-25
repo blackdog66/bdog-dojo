@@ -16,7 +16,7 @@ public function getLabel(item:Dynamic):Void;
 public function getLabelAttributes(item:Dynamic):Void;
 public function getIdentity(item:Dynamic):Int;
 public function getIdentityAttributes(item:Dynamic):Void;
-public function fetchItemByIdentity(keywordArgs:Dynamic):Dynamic;
+public function fetchItemByIdentity(keywordArgs:Dynamic):Void;
 public var url:String;
 public var tableId:String;
 

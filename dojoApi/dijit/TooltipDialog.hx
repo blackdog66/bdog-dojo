@@ -1,8 +1,9 @@
 package dijit;
 
 extern class TooltipDialog extends dijit.layout.ContentPane {
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public function _fillContent(source:Dynamic):Void;
-public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function getCachedTemplate(templatePath:Dynamic,?templateString:String,alwaysUseString:Dynamic):String;
 public function reset():Void;
 public function validate():Void;
 public function setValues(val:Dynamic):Void;
@@ -19,8 +20,7 @@ public function onOpen(pos:Dynamic):Void;
 public var templateString:String;
 public var templatePath:String;
 public var widgetsInTemplate:Bool;
-public var attributeMap:Dynamic;
+public var declaredClass:Dynamic;
 public var autofocus:Bool;
-public function new(prms:Dynamic,?name:String):Void;
 
 }

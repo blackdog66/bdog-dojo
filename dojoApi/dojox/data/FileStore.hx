@@ -22,6 +22,8 @@ public var url:Dynamic;
 public var label:Dynamic;
 public var pathSeparator:String;
 public var options:Array<Dynamic>;
-public var pathAsQueryParam:Bool;
+public var failOk:Bool;
+public var urlPreventCache:String;
+public var pathAsQueryParam:Dynamic;
 
 }

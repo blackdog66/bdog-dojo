@@ -6,7 +6,7 @@ public function onComplete(data:Dynamic,ioArgs:Dynamic,widgetRef:Dynamic):Void;
 public function insertTempImage():Void;
 public var tempImageUrl:String;
 public var uploadUrl:String;
-public var fileInput:Dynamic;
 public var label:String;
+public var currentImageId:String;
 
 }

@@ -33,5 +33,6 @@ public var xmlStr:String;
 public var data:Dynamic;
 public var label:String;
 public var mode:Dynamic;
+public var cdfDoc:Dynamic;
 
 }

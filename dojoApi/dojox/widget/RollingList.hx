@@ -1,8 +1,9 @@
 package dojox.widget;
 
 extern class RollingList extends dijit._Widget {
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public function _fillContent(source:Dynamic):Void;
-public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function getCachedTemplate(templatePath:Dynamic,?templateString:String,alwaysUseString:Dynamic):String;
 public function addChild(widget:Dynamic,?insertIndex:Int):Void;
 public function removeChild(widget:Dynamic):Void;
 public function hasChildren():Bool;
@@ -22,6 +23,7 @@ public function onChange(value:Dynamic):Void;
 public var templateString:String;
 public var templatePath:String;
 public var widgetsInTemplate:Bool;
+public var declaredClass:Dynamic;
 public var isContainer:Bool;
 public var className:String;
 public var store:Dynamic;
@@ -36,5 +38,6 @@ public var showButtons:Bool;
 public var okButtonLabel:String;
 public var cancelButtonLabel:String;
 public var minPaneWidth:Int;
+public var buttonsNode:Dynamic;
 
 }

@@ -14,5 +14,6 @@ public var encType:String;
 // public var accept-charset:String;
 public var accept:String;
 public var target:String;
+public var isForm:Bool;
 
 }

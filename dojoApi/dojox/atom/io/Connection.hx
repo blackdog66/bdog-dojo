@@ -10,5 +10,6 @@ public function addEntry(entry:Dynamic,url:Dynamic,callBack:Dynamic,errorCallbac
 public function deleteEntry(entry:Dynamic,callBack:Dynamic,errorCallback:Dynamic,xmethod:Dynamic,scope:Dynamic):Void;
 public var preventCache:Bool;
 public var alertsEnabled:Bool;
+public var sync:Dynamic;
 
 }

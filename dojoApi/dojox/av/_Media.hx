@@ -29,5 +29,8 @@ public var id:String;
 public var isDebug:Bool;
 public var percentDownloaded:Dynamic;
 public var flashMedia:Dynamic;
+public var status:String;
+public var duration:Dynamic;
+public var isBuffering:Dynamic;
 
 }

@@ -13,6 +13,7 @@ public function loadItem(item:Dynamic):Void;
 public function getFeatures():Dynamic;
 public function getLabel(item:Dynamic):String;
 public function getLabelAttributes(item:Dynamic):Array<Dynamic>;
+public function _fetchItems(keywordArgs:Dynamic,findCallback:Dynamic,errorCallback:Dynamic):Void;
 public function close(request:Dynamic):Void;
 public function getIdentity(item:Dynamic):String;
 public function fetchItemByIdentity(keywordArgs:Dynamic):Void;
@@ -20,6 +21,8 @@ public function getIdentityAttributes(item:Dynamic):Void;
 public var url:String;
 public var label:String;
 public var identifier:String;
+public var separator:String;
+public var urlPreventCache:Bool;
 public var _getArrayOfArraysFromCsvFileContents:Dynamic;
 
 }

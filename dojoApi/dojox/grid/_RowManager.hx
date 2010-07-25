@@ -10,5 +10,6 @@ public function setOverRow(inRowIndex:Dynamic):Void;
 public function isOver(inRowIndex:Dynamic):Void;
 public var linesToEms:Float;
 public var overRow:Float;
+public var grid:Dynamic;
 
 }

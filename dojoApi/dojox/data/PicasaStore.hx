@@ -15,5 +15,7 @@ public function getValues(item:Dynamic,attribute:Dynamic):Void;
 public function isItem(item:Dynamic):Void;
 public function close(request:Dynamic):Void;
 public var label:String;
+public var urlPreventCache:Bool;
+public var maxResults:Dynamic;
 
 }

@@ -18,13 +18,13 @@ public function measureHeader():Void;
 public function measureContent():Void;
 public function findClient(inAutoWidth:Dynamic):Void;
 public function arrange(l:Dynamic,w:Dynamic):Void;
-public function renderRow(inRowIndex:Dynamic,inNodes:Dynamic):Void;
+public function renderRow(inRowIndex:Dynamic,inNodes:Dynamic,skipRenorm:Dynamic):Void;
 public function rowRemoved(inRowIndex:Dynamic):Void;
-public function updateRow(inRowIndex:Dynamic):Void;
+public function updateRow(inRowIndex:Dynamic,skipRenorm:Dynamic):Void;
 public function updateRowStyles(inRowIndex:Dynamic):Void;
 public function setScrollTop(inTop:Dynamic):Void;
 public function getFirstScrollingView():Void;
 public var defaultWidth:Float;
-public var views:Array<Dynamic>;
+public var grid:Dynamic;
 
 }

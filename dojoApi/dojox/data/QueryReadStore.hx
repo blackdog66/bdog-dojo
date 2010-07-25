@@ -20,7 +20,7 @@ public function getIdentity(item:Dynamic):Void;
 public function getIdentityAttributes(item:Dynamic):Void;
 public var url:String;
 public var requestMethod:String;
-public var lastRequestHash:Dynamic;
+public var lastRequestHash:String;
 public var doClientPaging:Bool;
 public var doClientSorting:Bool;
 

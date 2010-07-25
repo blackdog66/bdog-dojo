@@ -2,7 +2,7 @@ package dijit._editor;
 
 extern class _Plugin {
 public function constructor(?args:Dynamic,?node:Dynamic):Void;
-public function _initButton(props:Dynamic):Void;
+public function _initButton():Void;
 public function destroy():Void;
 public function connect(o:Dynamic,f:Dynamic,tf:Dynamic):Void;
 public function updateState():Void;
@@ -14,6 +14,9 @@ public var button:Dynamic;
 public var command:String;
 public var useDefaultCommand:Bool;
 public var buttonClass:Dynamic;
-public function new(prms:Dynamic,?name:String):Void;
+public var enabled:Dynamic;
+public var checked:Dynamic;
+public var params:Dynamic;
+public function new(prms:Dynamic,?name:Dynamic):Void;
 
 }

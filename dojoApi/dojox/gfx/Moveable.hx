@@ -12,5 +12,9 @@ public function onFirstMove(mover:Dynamic):Void;
 public function onMove(mover:Dynamic,shift:Dynamic):Void;
 public function onMoving(mover:Dynamic,shift:Dynamic):Void;
 public function onMoved(mover:Dynamic,shift:Dynamic):Void;
+public var events:Array<Dynamic>;
+public var shape:Dynamic;
+public var delay:Float;
+public var mover:Dynamic;
 
 }

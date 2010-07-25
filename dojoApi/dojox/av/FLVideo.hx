@@ -1,6 +1,7 @@
 package dojox.av;
 
 extern class FLVideo extends dijit._Widget {
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public function getTime():Float;
 public function onLoad(mov:Dynamic):Void;
 public function onDownloaded(percent:Float):Void;
@@ -30,5 +31,10 @@ public var updateTime:Float;
 public var isDebug:Bool;
 public var percentDownloaded:Dynamic;
 public var flashMedia:Dynamic;
+public var status:String;
+public var duration:Dynamic;
+public var isBuffering:Dynamic;
+public var isPlaying:Bool;
+public var isStopped:Bool;
 
 }

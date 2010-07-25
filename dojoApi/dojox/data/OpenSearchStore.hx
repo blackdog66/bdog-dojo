@@ -18,13 +18,15 @@ public function process(data:Dynamic):Void;
 public function processItem(item:Dynamic,attribute:Dynamic):Void;
 public var url:String;
 public var itemPath:String;
-public var urlElement:Dynamic;
 public var iframeElement:Dynamic;
+public var urlPreventCache:Bool;
 public var ATOM_CONTENT_TYPE:Float;
 public var ATOM_CONTENT_TYPE_STRING:String;
 public var RSS_CONTENT_TYPE:Float;
 public var RSS_CONTENT_TYPE_STRING:String;
 public var XML_CONTENT_TYPE:Float;
 public var XML_CONTENT_TYPE_STRING:String;
+public var contentType:Dynamic;
+public var label:Dynamic;
 
 }

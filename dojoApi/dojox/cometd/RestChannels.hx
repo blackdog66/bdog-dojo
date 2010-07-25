@@ -16,10 +16,15 @@ public var acceptType:String;
 public var subscriptions:Dynamic;
 public var subCallbacks:Dynamic;
 public var autoReconnectTime:Float;
-public var reloadDataOnReconnect:Bool;
+public var reloadDataOnReconnect:Dynamic;
 public var sendAsJson:Bool;
 public var url:String;
 public var autoSubscribeRoot:String;
+public var started:Bool;
+public var connectionId:Dynamic;
+public var createdClientId:Dynamic;
+public var lastIndex:Float;
+public var connected:Bool;
 public var defaultInstance:Dynamic;
 
 }

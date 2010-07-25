@@ -16,5 +16,7 @@ public function isItemLoaded(something:Dynamic):Bool;
 public function loadItem(keywordArgs:Dynamic):Void;
 public function fetch(request:Dynamic):Void;
 public function close():Void;
+public var context:Dynamic;
+public var gatherHandle:Dynamic;
 
 }

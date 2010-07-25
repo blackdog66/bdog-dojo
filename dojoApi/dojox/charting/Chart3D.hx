@@ -9,5 +9,11 @@ public function addPlot(plot:Dynamic):Void;
 public function removePlot(plot:Dynamic):Void;
 public function addWall(wall:Dynamic):Void;
 public function removeWall(wall:Dynamic):Void;
+public var node:Dynamic;
+public var surface:Dynamic;
+public var view:Dynamic;
+public var theme:Dynamic;
+public var walls:Array<Dynamic>;
+public var plots:Array<Dynamic>;
 
 }

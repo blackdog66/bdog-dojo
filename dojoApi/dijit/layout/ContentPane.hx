@@ -1,10 +1,11 @@
 package dijit.layout;
 
 extern class ContentPane extends dijit._Widget {
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public function setHref(href:Dynamic):Void;
 public function setContent(data:Dynamic):Void;
 public function cancel():Void;
-public function resize(size:Dynamic):Void;
+public function resize(changeSize:Dynamic,resultSize:Dynamic):Void;
 public function refresh():Void;
 public function onLoad(data:Dynamic):Void;
 public function onUnload():Void;
@@ -22,10 +23,11 @@ public var refreshOnShow:Bool;
 public var loadingMessage:String;
 public var errorMessage:String;
 public var isLoaded:Bool;
-public var baseClass:String;
 public var doLayout:Bool;
 public var ioArgs:Dynamic;
 public var isContainer:Bool;
-public function new(prms:Dynamic,?name:String):Void;
+public var isLayoutContainer:Bool;
+public var onLoadDeferred:Dynamic;
+public var attributeMap:Dynamic;
 
 }

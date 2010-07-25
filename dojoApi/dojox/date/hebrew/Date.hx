@@ -2,7 +2,8 @@ package dojox.date.hebrew;
 
 extern class Date {
 public function new():Void;
-public function getDate(?isNumber:Bool):Void;
+public function getDate():Int;
+public function getDateLocalized(?locale:String):Void;
 public function getMonth():Void;
 public function getFullYear():Void;
 public function getHours():Void;

@@ -1,9 +1,9 @@
 package dojox.widget;
 
 extern class FisheyeLite extends dijit._Widget {
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public function easeIn():Void;
 public function easeOut():Void;
-public function new(props:Dynamic,node:Dynamic):Void;
 public function show():Void;
 public function hide():Void;
 public function onSelected(e:Dynamic):Void;

@@ -1,8 +1,9 @@
 package dojox.widget.gauge;
 
 extern class _Gauge extends dijit._Widget {
+public function new():Void;
 public function _fillContent(source:Dynamic):Void;
-public function getCachedTemplate(templatePath:String,?templateString:String,alwaysUseString:Dynamic):String;
+public function getCachedTemplate(templatePath:Dynamic,?templateString:String,alwaysUseString:Dynamic):String;
 public function addChild(widget:Dynamic,?insertIndex:Int):Void;
 public function removeChild(widget:Dynamic):Void;
 public function hasChildren():Bool;
@@ -27,6 +28,7 @@ public function handleMouseMove(event:Dynamic):Void;
 public var templateString:String;
 public var templatePath:String;
 public var widgetsInTemplate:Bool;
+public var declaredClass:Dynamic;
 public var isContainer:Bool;
 public var width:Dynamic;
 public var height:Float;
@@ -42,5 +44,7 @@ public var defaultColors:Array<Dynamic>;
 public var surface:Dynamic;
 public var hideValues:Bool;
 public var gaugeContent:Dynamic;
+public var ranges:Dynamic;
+public var indicators:Dynamic;
 
 }

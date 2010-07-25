@@ -13,7 +13,8 @@ public function resize(?changeSize:Dynamic,?resultSize:Dynamic):Void;
 public function layout():Void;
 public function _setupChild(child:Dynamic):Void;
 public var isContainer:Bool;
-public var baseClass:String;
-public function new(prms:Dynamic,?name:String):Void;
+public var isLayoutContainer:Bool;
+public var getParent:Dynamic;
+public function new(prms:Dynamic,?name:Dynamic):Void;
 
 }

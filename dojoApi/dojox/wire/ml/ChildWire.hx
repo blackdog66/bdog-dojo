@@ -1,6 +1,7 @@
 package dojox.wire.ml;
 
 extern class ChildWire extends dijit._Widget {
+public function new(prms:Dynamic,?name:Dynamic):Void;
 public var which:Dynamic;
 public var object:Dynamic;
 public var property:Dynamic;

@@ -1,7 +1,7 @@
 package dijit.form;
 
 extern class ComboBoxMixin {
-public function constructor():Void;
+public function new():Void;
 public function postMixInProperties():Void;
 public function postCreate():Void;
 public function uninitialize():Void;
@@ -21,8 +21,11 @@ public var labelType:String;
 public var queryExpr:String;
 public var ignoreCase:Bool;
 public var hasDownArrow:Bool;
-public var templatePath:Dynamic;
+public var templateString:Dynamic;
 public var baseClass:String;
-public function new(prms:Dynamic,?name:String):Void;
+public var searchTimer:Dynamic;
+public var value:String;
+public var srcNodeRef:Dynamic;
+public var comboNode:Dynamic;
 
 }

@@ -19,5 +19,6 @@ public function getIdentityAttributes(item:Dynamic):Void;
 public function close(request:Dynamic):Void;
 public var label:String;
 public var url:String;
+public var urlPreventCache:Bool;
 
 }

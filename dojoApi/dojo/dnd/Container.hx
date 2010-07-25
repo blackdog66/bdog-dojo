@@ -18,6 +18,13 @@ public function onMouseOut(e:Dynamic):Void;
 public function onSelectStart(e:Dynamic):Void;
 public function onOverEvent():Void;
 public function onOutEvent():Void;
+public var current:Dynamic;
+public var map:Dynamic;
 public var creator:Dynamic;
+public var node:Dynamic;
+public var parent:Dynamic;
+public var defaultCreator:Dynamic;
+public var containerState:String;
+public var events:Array<Dynamic>;
 
 }

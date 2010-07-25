@@ -26,5 +26,15 @@ public var minWidth:Float;
 public var minHeight:Float;
 public var showing:Bool;
 public var label:String;
+public var firstRun:Dynamic;
+public var store:Dynamic;
+public var onSetInterval:Float;
+public var items:Dynamic;
+public var dataOffset:Float;
+public var dataLength:Float;
+public var domNode:Dynamic;
+public var onSetItems:Dynamic;
+public var seriesData:Dynamic;
+public var seriesDataBk:Dynamic;
 
 }

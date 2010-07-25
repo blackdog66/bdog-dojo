@@ -11,5 +11,9 @@ public function approveSubscription(contact:Dynamic):Void;
 public function unsubscribe(contact:Dynamic):Void;
 public function declineSubscription(contact:Dynamic):Void;
 public function cancelSubscription(contact:Dynamic):Void;
+public var avatarHash:Dynamic;
+public var isInvisible:Bool;
+public var session:Dynamic;
+public var restrictedContactjids:Dynamic;
 
 }

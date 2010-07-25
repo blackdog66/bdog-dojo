@@ -20,8 +20,9 @@ public function getIdentityAttributes(item:Dynamic):Dynamic;
 public var url:String;
 public var data:Dynamic;
 public var typeMap:Dynamic;
-public var clearOnClose:Bool;
+public var clearOnClose:Dynamic;
 public var urlPreventCache:Bool;
-public var hierarchical:Bool;
+public var failOk:Bool;
+public var hierarchical:Dynamic;
 
 }

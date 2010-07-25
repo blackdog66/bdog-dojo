@@ -13,15 +13,22 @@ public function onDropExternal(source:Dynamic,nodes:Array<Dynamic>,copy:Bool):Vo
 public function onDropInternal(nodes:Array<Dynamic>,copy:Bool):Void;
 public function onDraggingOver():Void;
 public function onDraggingOut():Void;
-public var isSource:Bool;
+public var isSource:Dynamic;
 public var horizontal:Bool;
 public var copyOnly:Bool;
 public var selfCopy:Bool;
-public var selfAccept:Bool;
+public var selfAccept:Dynamic;
 public var withHandles:Bool;
-public var autoSync:Bool;
 public var delay:Float;
-public var accept:Array<Dynamic>;
-public var generateText:Bool;
+public var accept:Dynamic;
+public var generateText:Dynamic;
+public var targetAnchor:Dynamic;
+public var targetBox:Dynamic;
+public var mouseDown:Bool;
+public var isDragging:Bool;
+public var before:Dynamic;
+public var sourceState:String;
+public var targetState:String;
+public var topics:Array<Dynamic>;
 
 }

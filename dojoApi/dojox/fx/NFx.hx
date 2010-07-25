@@ -1,6 +1,17 @@
 package dojox.fx ;
 
 typedef NFx = {
+function animateTimeline(options:Dynamic,node:Dynamic):Dynamic;
+function anim():Void;
+function animateProperty():Void;
+function fadeTo():Void;
+function fadeIn():Void;
+function fadeOut():Void;
+function combine():Void;
+function chain():Void;
+function slideTo():Void;
+function wipeIn():Void;
+function wipeOut():Void;
 function sizeTo(args:Dynamic):Dynamic;
 function slideBy(args:Dynamic):Dynamic;
 function crossFade(args:Dynamic):Dynamic;
@@ -24,16 +35,7 @@ function blockFadeIn(args:Dynamic):Dynamic;
 function addClass(node:Dynamic,cssClass:String,?args:Dynamic):Dynamic;
 function removeClass(node:Dynamic,cssClass:Dynamic,args:Dynamic):Dynamic;
 function toggleClass(node:Dynamic,cssClass:String,?condition:Bool,?args:Dynamic):Dynamic;
-var anim:Dynamic;
-var animateProperty:Dynamic;
-var fadeTo:Dynamic;
-var fadeIn:Dynamic;
-var fadeOut:Dynamic;
-var combine:Dynamic;
-var chain:Dynamic;
-var slideTo:Dynamic;
-var wipeIn:Dynamic;
-var wipeOut:Dynamic;
+var Timeline:Dynamic;
 var easing:Dynamic;
 var scroll:Dynamic;
 var split:Dynamic;

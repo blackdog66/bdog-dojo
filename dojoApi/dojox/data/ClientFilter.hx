@@ -11,6 +11,10 @@ public function clientSideFetch(request:Dynamic,baseResults:Array<Dynamic>):Void
 public function clientSidePaging(request:Dynamic,baseResults:Array<Dynamic>):Void;
 public function matchesQuery(item:Dynamic,request:Dynamic):Void;
 public function makeComparator(sort:Dynamic):Dynamic;
+public var cacheByDefault:Bool;
 public var serverVersion:Float;
+public var onSet:Dynamic;
+public var onNew:Dynamic;
+public var onDelete:Dynamic;
 
 }

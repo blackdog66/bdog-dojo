@@ -12,6 +12,8 @@ public function formPointValue(elem:Dynamic,?value:Dynamic):Dynamic;
 public function inspectFormWidgets(inspector:Dynamic,?state:Dynamic,?defaultValue:Dynamic):Dynamic;
 public function inspectAttachedPoints(inspector:Dynamic,?state:Dynamic,?defaultValue:Dynamic):Dynamic;
 public function inspect(inspector:Dynamic,?state:Dynamic,?defaultValue:Dynamic):Dynamic;
-public var watch:Bool;
+public var watch:Dynamic;
+public var formWidgets:Dynamic;
+public var formNodes:Dynamic;
 
 }

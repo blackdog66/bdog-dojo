@@ -15,7 +15,13 @@ public function getConstructor():Void;
 public function onSet():Void;
 public function onNew():Void;
 public function onDelete():Void;
-public var referenceIntegrity:Bool;
+public function getParent(item:Dynamic):Void;
+public function getStore(options:Dynamic,Class:Dynamic):Void;
+public var loadReferencedSchema:Dynamic;
+public var idAsRef:Bool;
+public var referenceIntegrity:Dynamic;
 public var target:String;
+public var allowNoTrailingSlash:Bool;
+public var serverVersion:Dynamic;
 
 }

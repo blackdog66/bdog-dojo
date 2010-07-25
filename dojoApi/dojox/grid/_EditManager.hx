@@ -21,6 +21,7 @@ public function apply():Void;
 public function cancel():Void;
 public function save(inRowIndex:Int,inView:Dynamic):Void;
 public function restore(inView:Dynamic,inRowIndex:Int):Void;
-public var info:Dynamic;
+public var grid:Dynamic;
+public var connections:Array<Dynamic>;
 
 }

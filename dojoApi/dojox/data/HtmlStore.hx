@@ -16,8 +16,10 @@ public function getLabel(item:Dynamic):Void;
 public function getLabelAttributes(item:Dynamic):Void;
 public function getIdentity(item:Dynamic):Void;
 public function getIdentityAttributes(item:Dynamic):Void;
-public function fetchItemByIdentity(keywordArgs:Dynamic):Dynamic;
+public function fetchItemByIdentity(keywordArgs:Dynamic):Void;
 public var url:Dynamic;
 public var dataId:Dynamic;
+public var trimWhitespace:Dynamic;
+public var urlPreventCache:Bool;
 
 }
