@@ -44,6 +44,7 @@ class Create {
   
   static var keywords = [ "class", "callback"] ;
 
+  // top are treated separately
   static var namespaces = ["dojo.data",
                            "dojo.dnd",
                            "dojo.fx",
@@ -57,6 +58,7 @@ class Create {
                            "dojox.charting",
                            "dojox.charting.widget",
                            "dojox.data",
+                           "dojox.drawing",
                            "dojox.grid",
                            "dojox.analytics",
                            "dojox.atom",
@@ -90,7 +92,14 @@ class Create {
   static var prop_blacklist = ["regExpGen","serialize","skipForm","compare"];
  
   static var class_blacklist = [
-                          "dojo.data.util.simpleFetch"
+                                "dojo.data.util.simpleFetch",
+                                "dijit.layout._LayoutWidget",
+                                "dojox.dtl.Context",
+                                "dojox.dtl.DomInline",
+                                "dojox.dtl.Inline",
+                                "dojox.mobile.app.AlertDialog",
+                                "dojox.mobile.app._FormValueWidget",
+                                "Container"
                           ];
 
   // these should be in the provides api but aren't, so they're added
@@ -109,7 +118,10 @@ class Create {
                              "dojox.wire.ml.ChildWire",
                              "dojox.form._BusyButtonMixin",
                              "dojox.widget._CalendarDay",
-                             "dojox.widget._CalendarMonthYear"
+                             "dojox.widget._CalendarMonthYear",
+                             "dojox.gfx.Surface",
+                             "dojox.mobile.View"
+                            
                              ];
 
   static var missingDijit = ["dijit._MenuBase",
@@ -236,7 +248,7 @@ class All {
       name = toProper(ns);
     fo = js.io.File.write(to(name+".hx"),true);
     writeTypedefHeader(name);
-    writeBody(top,true);
+    writeBody(top,false);
     fo.close();
   }
   
@@ -254,13 +266,13 @@ class All {
   withFile(path,process:Void->Void) {
     // !! setting global here
     fo = js.io.File.write(to(path),true);
-    try {
+    //    try {
       process();
       fo.close();
-    } catch(exc:Dynamic) {
-      trace("exc:withFile:"+exc);
-      fo.close();
-    }
+      //} catch(exc:Dynamic) {
+      //trace("exc:withFile:"+exc);
+      //fo.close();
+      //}
   }
   
   static function
@@ -268,7 +280,7 @@ class All {
     if (prv != null) {
       for (p in prv) {
         var actual = lookup(p);
-        if (actual != null) {
+        if (actual != null && actual.location != null) {
           var
             asTypedef = treatAsTypedef(actual.location),
             asClass = treatAsClass(actual.location);
@@ -277,8 +289,21 @@ class All {
               || ( asTypedef || asClass)) {
             var s = p.split("."),
               path = s.join("/") + ".hx",
-              dir = s.slice(0,-1);
+              dir = s.slice(0,-1),
+              lastEl = s[s.length-1];
 
+            var
+              firstChar = lastEl.charAt(0),
+              secChar = lastEl.charAt(1);
+            
+            if (firstChar == "_" && secChar == secChar.toLowerCase())
+                continue;
+            else {
+              if (firstChar.toLowerCase() == firstChar) {
+                continue;
+              }
+            }
+                         
             Os.mkdir(to(dir.join("/")));
             withFile(path,function() {
                 Os.println("Writing "+actual.location);
@@ -289,9 +314,6 @@ class All {
                 else
                   writeClassHeader(actual,className(actual));
                 
-                if (actual.provides != null && actual.provides.length > 1) {
-                  trace("PR:"+className(actual)+" provides "+actual.provides.length);
-                }
                 writeBody(actual,true);
               });
           }
@@ -333,7 +355,8 @@ class All {
     var instance:Array<{location:String}> = Reflect.field(mixins,"instance");
     if (instance == null) return [];
     return instance
-      .filter(function(el) { return el.location != obj.superclass;})
+      .filter(function(el) { return el.location != null &&
+            el.location != obj.superclass;})
       .map(function(el) { return el.location; }).array();
   }
   
@@ -357,17 +380,28 @@ class All {
   static function
   writeBody(obj:Base,writePub = true) {
     var constructor = false;
+
+    if (inheritFrom(obj,"dijit._Widget")) {
+      write("public function new(prms:Dynamic,?name:Dynamic):Void;\n");
+      constructor = true;
+    }
+        
     eachMethod(obj,function(m) {
-        constructor = genMethod(obj,m,writePub);   
+        if (m.name != "constructor") {
+          genMethod(obj,m,writePub);
+        } else {
+          if (!constructor) {
+            write("public function new(");
+            genParam(m.parameters);
+            write("):Void;\n");
+          }
+        }
       });
+    
     eachProperty(obj,function(p) {
         genProp(obj,p,writePub);
       });
-    
-    if (curNS == "dijit") {
-      write("public function new(prms:Dynamic,?name:String):Void;\n");
-    }
-    
+
     write("\n}\n");
   }
 
@@ -402,13 +436,26 @@ class All {
     if (f) return true;
     return false;
   }
+
+  static function
+  inheritFrom(obj:Base,superClass:String) {
+    if (obj != null && obj.superclass != null) {
+      var o = lookup(obj.superclass);
+      if (o != null && o.location != null) {
+        if (o.location == superClass)
+          return true;
+        else
+          return inheritFrom(o,superClass);
+      }
+    }
+    return false;
+  }
   
   static function
   genMethod(o:Base,m:Method,writePub = true) {
-    var constructor = m.name == "constructor" && curNS != "dijit";
     if (m.name != null) {
       if (!priv(m)) {
-        if(uniqueAttr(o,m,METHODS) || constructor) {
+        if(uniqueAttr(o,m,METHODS) ) {
           commentIllegalName(m.name);
           
           if (writePub)
@@ -416,22 +463,17 @@ class All {
           
           write("function ");
 
-          if (constructor)
-            write("new(");
-          else
-            write(m.name + "(");
-        
+          write(m.name + "(");
           genParam(m.parameters);
-          
+            
           var ret:Array<{type:String}> = Reflect.field(m,"return-types");
-          if (ret == null || constructor)
+          if (ret == null)
             write("):Void;\n");
           else
             write("):"+getType(ret[0].type)+";\n");
         }
       }
     }
-    return constructor;
   }
 
   static function
@@ -442,8 +484,12 @@ class All {
         var opt = (p.usage == "optional") ? "?" : "";
         if (p.name == "callback")
           a.push(opt+"callBack:"+getType(p.type));
-        else
-          a.push(opt+p.name + ":"+getType(p.type));
+        else {
+          if (p.name == "override")
+            a.push(opt+"overRide:"+getType(p.type));
+          else
+            a.push(opt+p.name + ":"+getType(p.type));
+        }
       }
       var s = a.join(",");
       write(s);
@@ -474,49 +520,60 @@ class All {
   }
 
   static function
-  aggregateAttrs(obj:Base,type:String):Dynamic {
-    var
-      bases = getImplements(obj),
-      unique = new Hash<Base>();
-
-    bases.push(obj.location);
-    
-    bases.iter(function(b) {
-        var attrs:Array<Base> = Reflect.field(lookup(b),type);
-        if (attrs != null) {
-          for (a in attrs) {
-            if (!unique.exists(a.name)) {
-              //trace("unique is "+a.name);
-              unique.set(a.name,a);
+  aggregateAttrs(obj:Base,type:String,parentLoc:String=null):Dynamic {
+    if (obj != null) {
+      var
+        bases = getImplements(obj),
+        unique = new Hash<Base>();
+      
+      if (obj.location != null) {
+        if (parentLoc == "dojox.mobile.app.AlertDialog") {
+          trace("pushing "+obj.location+" for AlertDialog");
+        }
+        bases.push(obj.location);
+      }
+      
+      bases.iter(function(b) {
+          var attrs:Array<Base> = Reflect.field(lookup(b),type);
+          if (attrs != null) {
+            for (a in attrs) {
+              if (a.name != null && !unique.exists(a.name)) {
+                unique.set(a.name,a);
+              }
             }
           }
+        });
+      
+      /*
+        if (bases.length > 1) {
+        trace("bases:"+bases.length+", "+obj.location);
+        trace("final:"+final);
         }
-      });
-
-    /*
-    if (bases.length > 1) {
-      trace("bases:"+bases.length+", "+obj.location);
-      trace("final:"+final);
-    }
-    */
-    //trace("array len = "+unique.array().length);
+      */
+      //trace("array len = "+unique.array().length);
+       if (parentLoc == "dojox.mobile.app.AlertDialog") {
+         trace(unique.keys());
+       }
       return unique.array();
+    }
+    return null;
   }
   
   static function
   uniqueAttr(obj:Base,attr:Base,type:String) {
-    if (obj.superclass != null) {
+    if (obj != null && obj.superclass != null) {
       var o = lookup(obj.superclass);
-      //var superAttr:Array<Base> = Reflect.field(o,type);
-      var superAttr:Array<Base> = aggregateAttrs(o,type);
+      var superAttr:Array<Base> = aggregateAttrs(o,type,obj.location);
       if (superAttr != null) {
         if(superAttr.exists(function(pp) {
               return pp.name == attr.name; })) {
+          if (attr.name == "onClick")
+            trace("ommitting onClick "+obj.location+", super: "+o.location);
           return false;
         } else
           return uniqueAttr(o,attr,type);
       } else
-        return uniqueAttr(o,attr,type);
+      return uniqueAttr(o,attr,type);
     } 
     return true;
   }
