@@ -248,9 +248,46 @@ class All {
       name = toProper(ns);
     fo = js.io.File.write(to(name+".hx"),true);
     writeTypedefHeader(name);
+
+    for (f in Reflect.fields(api)) {
+      if (f.startsWith(ns)) {
+        var
+          o = Reflect.field(api,f),
+          t = Reflect.field(o,"type"),
+          cl = Reflect.field(o,"classlike"),
+          name = f.split(".");
+
+        name.shift();
+
+        if (name.length > 1) continue;
+        
+        if (t != null && t == "Function" && !cl) {
+          
+          genFunction(name.join("."),o);
+          trace("FUNCTION:"+f);
+        }
+      }
+    }
+
     writeBody(top,false);
+    
     fo.close();
   }
+
+  static function
+  genFunction(name:String,o:Method) {
+    write("function ");
+    
+    write(name + "(");
+    genParam(o.parameters);
+    
+    var ret:Array<{type:String}> = Reflect.field(o,"return-types");
+    if (ret == null)
+      write("):Void;\n");
+    else
+      write("):"+getType(ret[0].type)+";\n");
+  }
+
   
   static function
   nameSpace(ns) {

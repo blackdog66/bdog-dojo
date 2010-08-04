@@ -1,4 +1,9 @@
 typedef Dojo = {
+function DeferredList(list:Array<Dynamic>,?fireOnOneCallback:Bool,?fireOnOneErrback:Bool,?consumeErrors:Bool,?canceller:Dynamic):Void;
+function query(query:String,?root:Dynamic,?listCtor:Dynamic):dojo.NodeList;
+function cache(module:Dynamic,url:String,?value:Dynamic):String;
+function cookie(name:String,?value:String,?props:Dynamic):Dynamic;
+function flash():Void;
 function attr(node:Dynamic,name:Dynamic,?value:String):Dynamic;
 function hasAttr(node:Dynamic,name:String):Bool;
 function style(node:Dynamic,?style:Dynamic,?value:String):Void;
